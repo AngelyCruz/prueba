@@ -1,0 +1,113 @@
+﻿<UserControl x:Class="WPF_Vehitanques.Presentacion.Controles.ProgramadosMantenimiento"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+            Width="auto" Height="auto" Loaded="UserControl_Loaded">
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"  Height="auto">
+        <StackPanel Height="auto" >
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*"  ></ColumnDefinition>
+                    <ColumnDefinition Width="20*" ></ColumnDefinition>
+                    <ColumnDefinition Width="20*" ></ColumnDefinition>
+                    <ColumnDefinition Width="5*" ></ColumnDefinition>
+                    <ColumnDefinition Width="20*" ></ColumnDefinition>
+                    <ColumnDefinition Width="25*" ></ColumnDefinition>
+                    <ColumnDefinition Width="5*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition MinHeight="30" MaxHeight="50"></RowDefinition>
+                    <RowDefinition MinHeight="30" MaxHeight="50"></RowDefinition>
+                    <RowDefinition MinHeight="30" MaxHeight="50"></RowDefinition>
+                    <RowDefinition MinHeight="30" MaxHeight="50"></RowDefinition>
+                    <RowDefinition MinHeight="30" MaxHeight="50"></RowDefinition>
+                    <RowDefinition MinHeight="30" MaxHeight="50"></RowDefinition>
+                    <RowDefinition MinHeight="30" MaxHeight="50"></RowDefinition>
+                    <RowDefinition MinHeight="30" MaxHeight="50"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label  Grid.Column="1" Grid.Row="2" Content=" Concepto : " Height="30"  FontSize="13"  VerticalAlignment="Center"   />
+                <Border Grid.Column="2" Grid.Row="2" CornerRadius="5" BorderThickness="1" BorderBrush="Black" Height="25">
+                    <ComboBox Name="cbbconcepto" Background="Transparent" BorderThickness="0"  Height="25" VerticalContentAlignment="Center" FontSize="13"  >
+                        <ComboBoxItem   IsSelected="True" >1805</ComboBoxItem>
+                        <ComboBoxItem >2410</ComboBoxItem>
+                        <ComboBoxItem >4125</ComboBoxItem>
+                    </ComboBox>
+                </Border>
+<!--
+                <Label  Grid.Column="4" Grid.Row="1" Content="Tipo Vehículo: " Height="30"  FontSize="13"  VerticalAlignment="Center"   />
+                <Border Grid.Column="5" Grid.Row="1" CornerRadius="5" BorderThickness="1" BorderBrush="Black" Height="25">
+                    <ComboBox Name="cbbbtipovehiculo" Background="Transparent" BorderThickness="0"  Height="25" VerticalContentAlignment="Center" FontSize="13">
+                    </ComboBox>
+                </Border>
+                <CheckBox Name="chktodas" Grid.Row="2" Grid.Column="2"  HorizontalAlignment="Center" VerticalAlignment="Center" Content="Todas las Agencias"></CheckBox>
+
+                --><!--<RadioButton Name="rdiotodas" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Todas las Agencias"></RadioButton>--><!--
+                <Label  Grid.Column="4" Grid.Row="2" Content="Fecha Inicial" Height="30"  FontSize="13"  VerticalAlignment="Center"  />
+                <Border Grid.Column="5" Grid.Row="2" CornerRadius="5" BorderThickness="1" BorderBrush="Black" Height="25">
+                    <DatePicker Name="dtfechainicial" Background="Transparent" BorderThickness="0"  Height="25"  VerticalContentAlignment="Center"  FontSize="13" CalendarClosed="dtfechainicial_CalendarClosed"    TabIndex="3">
+                        <DatePicker.Resources>
+                            <Style TargetType="DatePickerTextBox">
+                                <Setter Property="IsReadOnly" Value="True"/>
+                            </Style>
+                        </DatePicker.Resources>
+                    </DatePicker>
+                </Border>
+                <Label Name="lblerror_fechainicial" Grid.Row="2"  Grid.Column="6"  HorizontalAlignment="Center" Foreground="Red"  FontSize="14"   FontWeight="Bold" Width="40" Height="25"></Label>-->
+                <Button Grid.Column="4" Grid.Row="2" Name="btn_buscar" ToolTip="Buscar Vehículos" Height="25" VerticalContentAlignment="Stretch"  HorizontalContentAlignment="Stretch"  Width="25" Click="btn_buscar_Click" >
+                    <DockPanel Width="25" Height="25">
+                        <Image Source="/WPF_Vehitanques;component/Imagenes/Buscar.png" Width="auto"/>
+                    </DockPanel>
+                </Button>
+                <StackPanel Name="pnl_Paginacion" Orientation="Horizontal" HorizontalAlignment="Center"  VerticalAlignment="Bottom"   MaxHeight="30" Grid.Row="4" Grid.Column="0 " Grid.ColumnSpan="8">
+                    <Button Margin="4,0" Content="Ant." Name="btn_ant" IsEnabled=" false" MinHeight="22" MinWidth="35" TabIndex="3"  Click="btn_ant_Click"  />
+                    <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                        <TextBlock Text="Mostrando registros del " Foreground="Black" />
+                        <TextBlock Name ="lbl_Inicio" Text="" Foreground="Black" />
+                        <TextBlock Text=" al " Foreground="Black" />
+                        <TextBlock Name ="lbl_Fin" Text="" Foreground="Black"/>
+                        <TextBlock Text=" de " Foreground="Black" />
+                        <TextBlock Name ="lbl_Total" Text="" Foreground="Black"/>
+                    </StackPanel>
+                    <Button Name="btn_sig" Margin="4,0" Content="Sig." MinHeight="22" MinWidth="35" TabIndex="4" Click="btn_sig_Click"   />
+                </StackPanel >
+                <StackPanel Grid.Column="0" Grid.ColumnSpan="7" Grid.Row="5" HorizontalAlignment="Center" MinWidth="400" MaxWidth="1100" Grid.RowSpan="2">
+                    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" >
+
+                        <DataGrid  Name="gridlistadovehiculos"  Width="auto"    CanUserReorderColumns="False" FontWeight="Bold" FontFamily="Arial"  CanUserAddRows="False" CanUserResizeRows="False"  CanUserResizeColumns="True" AlternatingRowBackground="#BCF9FA"  AutoGenerateColumns="False" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="8" Grid.RowSpan="2" ColumnWidth="Auto" HorizontalContentAlignment="Center" Cursor="Hand" MaxHeight="500"  HorizontalAlignment="Center"  VerticalAlignment="Stretch"  CanUserDeleteRows="False" IsEnabled="True" Visibility="Visible" ClipboardCopyMode="None" >
+                            <DataGrid.Columns >
+
+
+                                <DataGridTemplateColumn  CanUserResize="False" Width="auto"   >
+                                    <DataGridTemplateColumn.Header>
+
+                                        <Grid>
+                                            <CheckBox Content="Mensaje de Texto " Name="chkSelected"  Checked="chkSelected_Checked"  Unchecked="chkSelected_Unchecked" ></CheckBox>
+                                        </Grid>
+
+                                    </DataGridTemplateColumn.Header>
+
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <CheckBox Name="chkMsgtexto" Checked="chkMsgtexto_Checked"  CommandParameter="{Binding Path=Placa}"
+                                             HorizontalAlignment="Center"  VerticalAlignment="Center"  Unchecked="chkMsgtexto_Unchecked" />
+                                            <!--PreviewMouseLeftButtonDown="CheckBox_PreviewMouseLeftButtonDown" />-->
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTextColumn Header="Placa" Binding="{Binding Path=Placa}" Width="auto" IsReadOnly="true"   CanUserResize="False" />
+                                <DataGridTextColumn Header="Concepto" Binding="{Binding Path=ID_Concepto}" Width="auto" IsReadOnly="True" CanUserResize="False"/>
+                                <DataGridTextColumn Header="IdConductor" Binding="{Binding Path=IdConductor}"   Width="auto" IsReadOnly="True" CanUserResize="False" />
+                                <DataGridTextColumn Header=" Nombre Conductor " Binding="{Binding Path=Nombre}"  Width="auto" IsReadOnly="True" CanUserResize="False"/>
+                                <DataGridTextColumn Header="Celular" Binding="{Binding Path=CelPre}" Width="auto" IsReadOnly="True" CanUserResize="False"/>
+                                
+                            </DataGrid.Columns>
+                        </DataGrid>
+
+                    </ScrollViewer>
+                </StackPanel>
+                <Button Content="VENTANA MENSAJES DE TEXTO" FontFamily="Arial" FontSize="15" FontWeight="Bold" Height="23"  HorizontalAlignment="Center"   Name="btn_VentanaMsg"   Width="270"  Grid.Column="0" Grid.ColumnSpan="7"  Grid.Row="7"  VerticalAlignment="Center" Click="btn_VentanaMsg_Click"   />                
+            </Grid>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

@@ -1,0 +1,292 @@
+﻿<UserControl x:Class="WPF_Vehitanques.Presentacion.Controles.AdminBeneficiarioPropietario"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             Width="auto" Height="auto" Loaded="UserControl_Loaded" Name="adminprobenefi">
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"  Height="auto">
+        <StackPanel Height="auto" >
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*"  ></ColumnDefinition>
+                    <ColumnDefinition Width="90*" ></ColumnDefinition>
+                    <ColumnDefinition Width="5*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5*"></RowDefinition>
+                    <RowDefinition Height="40*"></RowDefinition>
+                    <RowDefinition Height="40*"></RowDefinition>
+                    <RowDefinition Height="5*"></RowDefinition>
+                </Grid.RowDefinitions>
+                
+                <GroupBox Grid.Column="1" Grid.Row="1" Header="Beneficiarios">
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="5*"  ></ColumnDefinition>
+                            <ColumnDefinition Width="15*" ></ColumnDefinition>
+                            <ColumnDefinition Width="25*" ></ColumnDefinition>
+                            <ColumnDefinition Width="5*"  ></ColumnDefinition>
+                            <ColumnDefinition Width="15*" ></ColumnDefinition>
+                            <ColumnDefinition Width="25*" ></ColumnDefinition>
+                            <ColumnDefinition Width="5*"  ></ColumnDefinition>
+                            <ColumnDefinition Width="5*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition MinHeight="30" MaxHeight="50"></RowDefinition>
+                            <RowDefinition MinHeight="30" MaxHeight="50"></RowDefinition>
+                            <RowDefinition MinHeight="30" MaxHeight="50"></RowDefinition>
+                            <RowDefinition MinHeight="30" MaxHeight="50"></RowDefinition>
+                            <RowDefinition MinHeight="30" MaxHeight="50"></RowDefinition>
+                            <RowDefinition MinHeight="30" MaxHeight="50"></RowDefinition>
+                            <RowDefinition MinHeight="30" MaxHeight="50"></RowDefinition>
+                            <RowDefinition MinHeight="30" MaxHeight="50"></RowDefinition>
+                            <RowDefinition MinHeight="30" MaxHeight="50"></RowDefinition>
+                            <RowDefinition MinHeight="30" MaxHeight="50"></RowDefinition>
+                            <RowDefinition MinHeight="30" MaxHeight="50"></RowDefinition>
+                            <RowDefinition MinHeight="30" MaxHeight="50"></RowDefinition>
+                            <RowDefinition MinHeight="30" MaxHeight="50"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Label  Grid.Column="1" Grid.Row="0" Content="Tipo Doc." Height="30"  FontSize="13"  VerticalAlignment="Center"  />
+                        <Border Grid.Column="2" Grid.Row="0" CornerRadius="5" BorderThickness="1" BorderBrush="Black" Height="25">
+                            <ComboBox Name="cbbtipodocumentobenefi" Background="Transparent" BorderThickness="0"  Height="25" VerticalContentAlignment="Center" FontSize="13"  SelectionChanged="cbbtipodocumentobenefi_SelectionChanged" TabIndex="0"/>
+                        </Border>
+                        <Label  Grid.Column="4" Grid.Row="0" Content="* Número" Height="30"  FontSize="13"  VerticalAlignment="Center"  />
+                        <Border Grid.Column="5" Grid.Row="0" CornerRadius="5" BorderThickness="1" BorderBrush="Black" Height="25">
+                            <TextBox  Name="txtNumdocumentobenefi"   Background="Transparent" BorderThickness="0"  Height="25" MaxLength="12" VerticalContentAlignment="Center" FontSize="13"   KeyDown="textboxt_KeyDown"  PreviewKeyDown="txtNumdocumentobenefi_PreviewKeyDown" TabIndex="1"/>
+                        </Border>
+                        <Label Name="lblerror_Numdocumentobenef"  Grid.Column="6" Grid.Row="0" HorizontalAlignment="Center" Foreground="Red"  FontSize="14"   FontWeight="Bold" Width="40" Height="25"></Label>
+                        <Border Grid.Column="7" Grid.Row="0" CornerRadius="5" BorderThickness="1" BorderBrush="Black" Height="25" Width="25">
+                            <TextBox  Name="txtNitVerificacionBenefi"   Background="Transparent" BorderThickness="0"  Height="25" MaxLength="1" VerticalContentAlignment="Center" FontSize="13"   KeyDown="textboxt_KeyDown" />
+                        </Border>
+                        <Label  Grid.Column="1" Grid.Row="1" Content="* Nombre(s)" Height="30"  FontSize="13"  VerticalAlignment="Center"  />
+                        <Border Grid.Column="2"  Grid.ColumnSpan="4" Grid.Row="1" CornerRadius="5" BorderThickness="1" BorderBrush="Black" Height="25">
+                            <TextBox  CharacterCasing="Upper"   Name="txtnombresbenefi"   Background="Transparent" BorderThickness="0"  Height="25" MaxLength="60" VerticalContentAlignment="Center" FontSize="13" KeyUp="TextboxtStringShift_KeyUp" TabIndex="2" />
+                        </Border>
+                        <Label Name="lblerror_nombresbenefi"  Grid.Column="6" Grid.Row="1" HorizontalAlignment="Center" Foreground="Red"  FontSize="14"   FontWeight="Bold" Width="40" Height="25"></Label>
+                        <Label  Grid.Column="1" Grid.Row="2" Content="* 1er Apellido" Height="30"  FontSize="13"  VerticalAlignment="Center"  />
+                        <Border Grid.Column="2" Grid.Row="2" CornerRadius="5" BorderThickness="1" BorderBrush="Black" Height="25">
+                            <TextBox  CharacterCasing="Upper"  Name="txtapellidobenefi1"   Background="Transparent" BorderThickness="0"  Height="25" MaxLength="50" VerticalContentAlignment="Center" FontSize="13"   KeyUp="TextboxtStringShift_KeyUp" TabIndex="3"/>
+                        </Border>
+                        <Label Name="lblerror_apellidobenefi1"  Grid.Column="3" Grid.Row="2" HorizontalAlignment="Center" Foreground="Red"  FontSize="14"   FontWeight="Bold" Width="40" Height="25"></Label>
+                        <Label  Grid.Column="4" Grid.Row="2" Content="* 2do Apellido" Height="30"  FontSize="13"  VerticalAlignment="Center"  />
+                        <Border Grid.Column="5" Grid.Row="2" CornerRadius="5" BorderThickness="1" BorderBrush="Black" Height="25">
+                            <TextBox CharacterCasing="Upper"   Name="txtapellidobenefi2"   Background="Transparent" BorderThickness="0"  Height="25" MaxLength="50" VerticalContentAlignment="Center" FontSize="13"  KeyUp="TextboxtStringShift_KeyUp" TabIndex="4"/>
+                        </Border>
+                        <Label Name="lblerror_apellidobenefi2"  Grid.Column="6" Grid.Row="2" HorizontalAlignment="Center" Foreground="Red"  FontSize="14"   FontWeight="Bold" Width="40" Height="25"></Label>
+                        <Label  Grid.Column="1" Grid.Row="3" Content="Departamento" Height="30"  FontSize="13"  VerticalAlignment="Center"  />
+                        <Border Grid.Column="2" Grid.Row="3"  CornerRadius="5" BorderThickness="1" BorderBrush="Black" Height="25">
+                            <ComboBox Name="cbbdeparbenefi" Background="Transparent" BorderThickness="0"  Height="25" VerticalContentAlignment="Center" FontSize="13" SelectionChanged="cbbdeparbenefi_SelectionChanged" TabIndex="5" />
+                        </Border>
+                        <Label  Grid.Column="4" Grid.Row="3" Content="Ciudad" Height="30"  FontSize="13"  VerticalAlignment="Center"  />
+                        <Border Grid.Column="5" Grid.Row="3"  CornerRadius="5" BorderThickness="1" BorderBrush="Black" Height="25">
+                            <ComboBox Name="cbbciudadbenefi" Background="Transparent" BorderThickness="0"  Height="25" VerticalContentAlignment="Center" FontSize="13" TabIndex="6" />
+                        </Border>
+                        <Label  Grid.Column="1" Grid.Row="4" Content="* Dirección" Height="30"  FontSize="13"  VerticalAlignment="Center"  />
+                        <Border Grid.Column="2" Grid.Row="4" Grid.ColumnSpan="4" CornerRadius="5" BorderThickness="1" BorderBrush="Black" Height="25">
+                            <TextBox CharacterCasing="Upper"   Name="txtdireccionbenefi"   Background="Transparent" BorderThickness="0"  Height="25" MaxLength="60" VerticalContentAlignment="Center" FontSize="13"   KeyUp="TextboxtStringShift_KeyUp" TabIndex="7"/>
+                        </Border>
+                        <Label Name="lblerror_direccionbenefi"  Grid.Column="6" Grid.Row="4" HorizontalAlignment="Center" Foreground="Red"  FontSize="14"   FontWeight="Bold" Width="40" Height="25"></Label>
+                        
+                        <Label  Grid.Column="1" Grid.Row="5" Content="* Tel. Celular" Height="30"  FontSize="13"  VerticalAlignment="Center"  />
+                        <Border Grid.Column="2" Grid.Row="5" CornerRadius="5" BorderThickness="1" BorderBrush="Black" Height="25">
+                            <TextBox  CharacterCasing="Upper"  Name="txtcelbenefi"   Background="Transparent" BorderThickness="0"  Height="25" MaxLength="10" VerticalContentAlignment="Center" FontSize="13"  KeyDown="textboxt_KeyDown"  KeyUp="TextboxtStringShift_KeyUp" TabIndex="8"/>
+                        </Border>
+                        <Label Name="lblerror_celbenefi"  Grid.Column="3" Grid.Row="5" HorizontalAlignment="Center" Foreground="Red"  FontSize="14"   FontWeight="Bold" Width="40" Height="25"></Label>
+                        <Label  Grid.Column="4" Grid.Row="5" Content="Teléfono E Indicativo" Height="30"  FontSize="13"  VerticalAlignment="Center"  />
+                        <StackPanel   Grid.Column="5" Grid.Row="5" VerticalAlignment="Center"    Width="auto">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="20*"></ColumnDefinition>
+                                    <ColumnDefinition Width="80*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Border Grid.Column="0" CornerRadius="5" BorderThickness="1" BorderBrush="Black" Height="25" Width="auto">
+
+                                    <TextBox  Name="txtIndicativobenefi"   Background="Transparent" BorderThickness="0" Height="25" MaxLength="3" VerticalContentAlignment="Center" FontSize="13"  KeyDown="textboxt_KeyDown" KeyUp="TextboxtStringShift_KeyUp"  />
+                                </Border>
+                                <Border Grid.Column="1"  CornerRadius="5" BorderThickness="1" BorderBrush="Black" Height="25">
+                                    <TextBox  CharacterCasing="Upper"  Name="txttelefonobenefi"   Background="Transparent" BorderThickness="0"  Height="25" MaxLength="7" VerticalContentAlignment="Center" FontSize="13"  KeyDown="textboxt_KeyDown" KeyUp="TextboxtStringShift_KeyUp"  />
+                                </Border>
+                            </Grid>
+
+                        </StackPanel>
+
+                        <Label  Grid.Column="1" Grid.Row="6" Content="Agencia" Height="30"  FontSize="13"  VerticalAlignment="Center"  />
+                        <Border Grid.Column="2" Grid.Row="6"  CornerRadius="5" BorderThickness="1" BorderBrush="Black" Height="25">
+                            <ComboBox Name="cbbagenciabenefi" Background="Transparent" BorderThickness="0"  Height="25" VerticalContentAlignment="Center" FontSize="13" SelectionChanged="cbbagenciabenefi_SelectionChanged" TabIndex="10" />
+                        </Border>
+                        <Border IsEnabled="False" Grid.Column="3" Grid.Row="6" CornerRadius="5" BorderThickness="1" BorderBrush="Black" Height="25">
+                            <TextBox  CharacterCasing="Upper"   IsEnabled="False"  Name="txtagenciabenefi"   Background="Transparent" BorderThickness="0"  Height="25" MaxLength="10" VerticalContentAlignment="Center" FontSize="13"  MaxWidth="150"  />
+                        </Border>
+                        <Label  Grid.Column="4" Grid.Row="6" Content="correo electrónico (Email)" Height="30"  FontSize="13"  VerticalAlignment="Center"  />
+                        <Border Grid.Column="5" Grid.Row="6" CornerRadius="5" BorderThickness="1" BorderBrush="Black" Height="25">
+                            <TextBox CharacterCasing="Upper"   Name="txtemail"   Background="Transparent" BorderThickness="0"  Height="25" MaxLength="50" VerticalContentAlignment="Center" FontSize="13"   />
+                        </Border>
+                        <StackPanel Grid.Column="1" IsEnabled="False"  Grid.ColumnSpan="2" Grid.Row="7" Name="pnl_listasriesgobeneficiario" >
+                            <Grid >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50*"  ></ColumnDefinition>
+                                    <ColumnDefinition Width="25*" ></ColumnDefinition>
+                                    <ColumnDefinition Width="25*"></ColumnDefinition>
+
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition MinHeight="30" MaxHeight="50"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Label  Grid.Column="0"  Grid.Row="0" Content="Verificación en las listas de riesgo" Height="30"  FontSize="13"  VerticalAlignment="Center"  />
+                                <RadioButton  Grid.Column="1" Grid.Row="0" Name="rdblistaapruebabenefi" Content="Aprueba" VerticalAlignment="Center" ></RadioButton>
+                                <RadioButton  Grid.Column="2" Grid.Row="0" Name="rdblistaNoapruebabenefi" Content="No  Aprueba" VerticalAlignment="Center"  ></RadioButton>
+
+                            </Grid>
+                        </StackPanel>
+                        <Label  Grid.Column="4" Grid.Row="7" Content="Fecha de Estudio" Height="30"  FontSize="13"  VerticalAlignment="Center"  />
+                        <Border  Grid.Column="5" Grid.Row="7" CornerRadius="5" BorderThickness="1" BorderBrush="Black" Height="25">
+                            <DatePicker IsEnabled="False"  Name="dtfechaestudiobenefi" Background="Transparent" BorderThickness="0"  Height="25"  VerticalContentAlignment="Center"  FontSize="13"  CalendarClosed="dtfechaestudiobenefi_CalendarClosed" CalendarOpened="dtfechaestudiobenefi_CalendarOpened">
+                                <DatePicker.Resources>
+                                    <Style TargetType="DatePickerTextBox">
+                                        <Setter Property="IsReadOnly" Value="True"/>
+                                    </Style>
+                                </DatePicker.Resources>
+                            </DatePicker>
+                        </Border>
+                        <Label  Grid.Column="1" Grid.Row="8" Content="* Contrato Al benficiario" Height="30"  FontSize="13"  VerticalAlignment="Center"   />
+
+                        <!--<WrapPanel Grid.Column="2" Grid.Row="8" Orientation="Horizontal"  HorizontalAlignment="Left"  >
+                            <Button  Name="btn_contratoBeneficiario"   FontFamily="Arial" FontWeight="Bold" TabIndex="7" Click="btn_contratoBeneficiario_Click" >
+                                <WrapPanel Width="50" Height="25">
+                                    <Image   Width="50" Height="25" Source="/WPF_Vehitanques;component/Iconos/document_search.png"  ToolTip="Ver Documento Contrato Coltanques"></Image>
+                                </WrapPanel>
+                            </Button>
+                        </WrapPanel>-->
+
+                        <GroupBox  Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="9" Grid.RowSpan="3" Header="Observaciones en Tenedor/Propietario">
+                            <StackPanel>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="5*"  ></ColumnDefinition>
+                                        <ColumnDefinition Width="90*"  ></ColumnDefinition>
+                                        <ColumnDefinition Width="5*" ></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition MinHeight="30" MaxHeight="50"></RowDefinition>
+                                        <RowDefinition MinHeight="30" MaxHeight="50"></RowDefinition>
+                                        <RowDefinition MinHeight="30" MaxHeight="50"></RowDefinition>
+                                        <RowDefinition MinHeight="30" MaxHeight="50"></RowDefinition>
+                                        <RowDefinition MinHeight="30" MaxHeight="50"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <CheckBox Grid.Column="1" Grid.Row="0"  HorizontalAlignment="Right" Content="Modificar" Name="chkobservacionestenedor" Checked="chkobservacionestenedor_Checked" Unchecked="chkobservacionestenedor_Unchecked" IsEnabled="False" />
+
+                                    <Border Grid.Column="1" Grid.Row="1"  Grid.RowSpan="5" CornerRadius="5" BorderThickness="1" BorderBrush="Black" MinHeight="150" MaxHeight="250">
+
+                                        <TextBox IsEnabled="False"   Name="txtobservacionestenedor"  TextWrapping="Wrap"  AcceptsReturn="True" 
+                                        VerticalScrollBarVisibility="Visible" MaxHeight="150" MinHeight="100" MaxWidth="500" MaxLength="200" KeyUp="TextboxtStringShift_KeyUp"  TabIndex="11"  ></TextBox>
+
+                                    </Border>
+
+                                </Grid>
+                            </StackPanel>
+                        </GroupBox>
+                    </Grid>
+                </GroupBox>
+                <GroupBox Grid.Column="1" Grid.Row="2" Header="Propietario">
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="5*"  ></ColumnDefinition>
+                            <ColumnDefinition Width="15*" ></ColumnDefinition>
+                            <ColumnDefinition Width="25*" ></ColumnDefinition>
+                            <ColumnDefinition Width="5*"  ></ColumnDefinition>
+                            <ColumnDefinition Width="15*" ></ColumnDefinition>
+                            <ColumnDefinition Width="25*" ></ColumnDefinition>
+                            <ColumnDefinition Width="5*"  ></ColumnDefinition>
+                            <ColumnDefinition Width="5*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition MinHeight="30" MaxHeight="50"></RowDefinition>
+                            <RowDefinition MinHeight="30" MaxHeight="50"></RowDefinition>
+                            <RowDefinition MinHeight="30" MaxHeight="50"></RowDefinition>
+                            <RowDefinition MinHeight="30" MaxHeight="50"></RowDefinition>
+                            <RowDefinition MinHeight="30" MaxHeight="50"></RowDefinition>
+                            <RowDefinition MinHeight="30" MaxHeight="50"></RowDefinition>
+                            <RowDefinition MinHeight="30" MaxHeight="50"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Label  Grid.Column="1" Grid.Row="0" Content="Tipo Doc." Height="30"  FontSize="13"  VerticalAlignment="Center"  />
+                        <Border Grid.Column="2" Grid.Row="0" CornerRadius="5" BorderThickness="1" BorderBrush="Black" Height="25">
+                            <ComboBox Name="cbbtipodocumentopropi" Background="Transparent" BorderThickness="0"  Height="25" VerticalContentAlignment="Center" FontSize="13" SelectionChanged="cbbtipodocumentopropi_SelectionChanged"  TabIndex="12" />
+                        </Border>
+                        <Label  Grid.Column="4" Grid.Row="0" Content="* Número" Height="30"  FontSize="13"  VerticalAlignment="Center"  />
+                        <Border Grid.Column="5" Grid.Row="0" CornerRadius="5" BorderThickness="1" BorderBrush="Black" Height="25">
+                            <TextBox  CharacterCasing="Upper"  Name="txtNumdocumentopropi"   Background="Transparent" BorderThickness="0"  Height="25" MaxLength="12" VerticalContentAlignment="Center" FontSize="13"  KeyDown="textboxt_KeyDown"  PreviewKeyDown="txtNumdocumentopropi_PreviewKeyDown"  TabIndex="13"  />
+                        </Border>
+                        <Label Name="lblerror_Numdocumentopropi"  Grid.Column="6" Grid.Row="0" HorizontalAlignment="Center" Foreground="Red"  FontSize="14"   FontWeight="Bold" Width="40" Height="25"></Label>
+                        <Border Grid.Column="7" Grid.Row="0" CornerRadius="5" BorderThickness="1" BorderBrush="Black" Height="25" Width="25">
+                            <TextBox  Name="txtNitVerificacionPropi"   Background="Transparent" BorderThickness="0"  Height="25" MaxLength="1" VerticalContentAlignment="Center" FontSize="13"   KeyDown="textboxt_KeyDown"  />
+                        </Border>
+                        <Label  Grid.Column="1" Grid.Row="1" Content="* Nombre(s)" Height="30"  FontSize="13"  VerticalAlignment="Center"  />
+                        <Border Grid.Column="2"  Grid.ColumnSpan="4" Grid.Row="1" CornerRadius="5" BorderThickness="1" BorderBrush="Black" Height="25">
+                            <TextBox CharacterCasing="Upper"   Name="txtnombrespropi"   Background="Transparent" BorderThickness="0"  Height="25" MaxLength="60" VerticalContentAlignment="Center" FontSize="13"  KeyUp="TextboxtStringShift_KeyUp"  TabIndex="14"  />
+                        </Border>
+
+                        <Label Name="lblerror_nombrespropi"  Grid.Column="6" Grid.Row="1" HorizontalAlignment="Center" Foreground="Red"  FontSize="14"   FontWeight="Bold" Width="40" Height="25"></Label>
+                        <Label  Grid.Column="1" Grid.Row="2" Content="* 1er Apellido" Height="30"  FontSize="13"  VerticalAlignment="Center"  />
+                        <Border Grid.Column="2" Grid.Row="2" CornerRadius="5" BorderThickness="1" BorderBrush="Black" Height="25">
+                            <TextBox CharacterCasing="Upper"   Name="txtapellidopropi1"   Background="Transparent" BorderThickness="0"  Height="25" MaxLength="50" VerticalContentAlignment="Center" FontSize="13"   KeyUp="TextboxtStringShift_KeyUp"  TabIndex="15" />
+                        </Border>
+                        <Label Name="lblerror_apellidopropi1"  Grid.Column="3" Grid.Row="2" HorizontalAlignment="Center" Foreground="Red"  FontSize="14"   FontWeight="Bold" Width="40" Height="25"></Label>
+                        <Label  Grid.Column="4" Grid.Row="2" Content="* 2do Apellido" Height="30"  FontSize="13"  VerticalAlignment="Center"  />
+                        <Border Grid.Column="5" Grid.Row="2" CornerRadius="5" BorderThickness="1" BorderBrush="Black" Height="25">
+                            <TextBox CharacterCasing="Upper"   Name="txtapellidopropi2"   Background="Transparent" BorderThickness="0"  Height="25" MaxLength="50" VerticalContentAlignment="Center" FontSize="13"   KeyUp="TextboxtStringShift_KeyUp"  TabIndex="16" />
+                        </Border>
+                        <Label Name="lblerror_apellidopropi2"  Grid.Column="6" Grid.Row="2" HorizontalAlignment="Center" Foreground="Red"  FontSize="14"   FontWeight="Bold" Width="40" Height="25"></Label>
+                        <Label  Grid.Column="1" Grid.Row="3" Content="Departamento" Height="30"  FontSize="13"  VerticalAlignment="Center"  />
+                        <Border Grid.Column="2" Grid.Row="3"  CornerRadius="5" BorderThickness="1" BorderBrush="Black" Height="25">
+                            <ComboBox Name="cbbdeparpropi" Background="Transparent" BorderThickness="0"  Height="25" VerticalContentAlignment="Center" FontSize="13" SelectionChanged="cbbdeparpropi_SelectionChanged"  TabIndex="17" />
+                        </Border>
+                        <Label  Grid.Column="4" Grid.Row="3" Content="Ciudad" Height="30"  FontSize="13"  VerticalAlignment="Center"  />
+                        <Border Grid.Column="5" Grid.Row="3"  CornerRadius="5" BorderThickness="1" BorderBrush="Black" Height="25">
+                            <ComboBox Name="cbbciudadpropi" Background="Transparent" BorderThickness="0"  Height="25" VerticalContentAlignment="Center" FontSize="13"   TabIndex="18" />
+                        </Border>
+
+                        <Label  Grid.Column="1" Grid.Row="4" Content="* Dirección" Height="30"  FontSize="13"  VerticalAlignment="Center"  />
+                        <Border Grid.Column="2" Grid.Row="4" Grid.ColumnSpan="4" CornerRadius="5" BorderThickness="1" BorderBrush="Black" Height="25">
+                            <TextBox  CharacterCasing="Upper"  Name="txtdireccionpropi"   Background="Transparent" BorderThickness="0"  Height="25" MaxLength="60" VerticalContentAlignment="Center" FontSize="13"  KeyUp="TextboxtStringShift_KeyUp" TabIndex="19"  />
+                        </Border>
+                        <Label Name="lblerror_direccionpropi"  Grid.Column="6" Grid.Row="4" HorizontalAlignment="Center" Foreground="Red"  FontSize="14"   FontWeight="Bold" Width="40" Height="25"></Label>
+                        <!--<Label  Grid.Column="1" Grid.Row="5" Content="Tel. Celular" Height="30"  FontSize="13"  VerticalAlignment="Center"  />
+                                    <Border Grid.Column="2" Grid.Row="5" CornerRadius="5" BorderThickness="1" BorderBrush="Black" Height="25">
+                                        <TextBox  Name="txtcelpropi"   Background="Transparent" BorderThickness="0"  Height="25" MaxLength="10" VerticalContentAlignment="Center" FontSize="13"  KeyDown="textboxt_KeyDown"  />
+                                    </Border>-->
+                        <Label  Grid.Column="4" Grid.Row="5" Content="* Teléfono" Height="30"  FontSize="13"  VerticalAlignment="Center"  />
+                        <Border Grid.Column="5" Grid.Row="5" CornerRadius="5" BorderThickness="1" BorderBrush="Black" Height="25">
+                            <TextBox   CharacterCasing="Upper" Name="txttelefonopropi"   Background="Transparent" BorderThickness="0"  Height="25" MaxLength="10" VerticalContentAlignment="Center" FontSize="13"   KeyDown="textboxt_KeyDown"  TabIndex="20" />
+                        </Border>
+                        <Label Name="lblerror_telefonopropi"  Grid.Column="6" Grid.Row="5" HorizontalAlignment="Center" Foreground="Red"  FontSize="14"   FontWeight="Bold" Width="40" Height="25"></Label>
+                        <StackPanel Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="5" Name="pnl_listasriesgopropietario" IsEnabled="False" >
+                            <Grid >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50*"  ></ColumnDefinition>
+                                    <ColumnDefinition Width="25*" ></ColumnDefinition>
+                                    <ColumnDefinition Width="25*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition MinHeight="30" MaxHeight="50"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Label  Grid.Column="0"  Grid.Row="0" Content="Verificación en las listas de riesgo" Height="30"  FontSize="13"  VerticalAlignment="Center"  />
+                                <RadioButton  Grid.Column="1" Grid.Row="0" Name="rdblistaapruebapropi" Content="Aprueba" VerticalAlignment="Center" ></RadioButton>
+                                <RadioButton  Grid.Column="2" Grid.Row="0" Name="rdblistaNoapruebapropi" Content="No  Aprueba" VerticalAlignment="Center"  ></RadioButton>
+                            </Grid>
+                        </StackPanel>
+                        <Label  Grid.Column="1" Grid.Row="6" Content="Fecha de Estudio" Height="30"  FontSize="13"  VerticalAlignment="Center"  />
+                        <Border  Grid.Column="2" Grid.Row="6" CornerRadius="5" BorderThickness="1" BorderBrush="Black" Height="25">
+                            <DatePicker Name="dtfechaestudiopropi" Background="Transparent" BorderThickness="0"  Height="25"  VerticalContentAlignment="Center"  FontSize="13" IsEnabled="False"   CalendarClosed="dtfechaestudiopropi_CalendarClosed" CalendarOpened="dtfechaestudiopropi_CalendarOpened">
+                                <DatePicker.Resources>
+                                    <Style TargetType="DatePickerTextBox">
+                                        <Setter Property="IsReadOnly" Value="True"/>
+                                    </Style>
+                                </DatePicker.Resources>
+                            </DatePicker>
+                        </Border>
+                    </Grid>
+                </GroupBox>
+            </Grid>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

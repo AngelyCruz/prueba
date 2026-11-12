@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <configSections>
+    <section name="entityFramework" type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
+  </configSections>
+  <startup>
+    <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
+  </startup>
+  <connectionStrings>
+    <add name="aspnetdb_ColtanquesEntities" connectionString="metadata=res://*/Modelo.ModeloSeguridad.csdl|res://*/Modelo.ModeloSeguridad.ssdl|res://*/Modelo.ModeloSeguridad.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=SERVER;initial catalog=DATABASE;persist security info=True;user id=USERNAME;password=REPLACE_ME;MultipleActiveResultSets=True;App=EntityFramework&quot;" providerName="System.Data.EntityClient" />
+    <add name="ComercialPEntities" connectionString="metadata=res://*/Modelo.VehitanquesModel.csdl|res://*/Modelo.VehitanquesModel.ssdl|res://*/Modelo.VehitanquesModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=SERVER;initial catalog=DATABASE;persist security info=True;user id=USERNAME;password=REPLACE_ME;MultipleActiveResultSets=True;application name=EntityFramework&quot;" providerName="System.Data.EntityClient" />
+    <add name="WPF_Vehitanques.Properties.Settings.ComercialPConnectionString" connectionString="Data Source=SERVER;Initial Catalog=DATABASE;Persist Security Info=True;User ID=USERNAME;Password=REPLACE_ME;MultipleActiveResultSets=True;Application Name=EntityFramework" providerName="System.Data.SqlClient" />
+    <add name="AndroidEntities" connectionString="metadata=res://*/Modelo.ModeloAndroid.csdl|res://*/Modelo.ModeloAndroid.ssdl|res://*/Modelo.ModeloAndroid.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=SERVER;initial catalog=DATABASE;persist security info=True;user id=USERNAME;password=REPLACE_ME;MultipleActiveResultSets=True;App=EntityFramework&quot;" providerName="System.Data.EntityClient" />
+    <add name="WPF_Vehitanques.Properties.Settings.AndroidConnectionString" connectionString="Data Source=SERVER;Initial Catalog=DATABASE;Persist Security Info=True;User ID=USERNAME;Password=REPLACE_ME;MultipleActiveResultSets=True" providerName="System.Data.SqlClient" />
+  </connectionStrings>
+  <entityFramework>
+    <defaultConnectionFactory type="System.Data.Entity.Infrastructure.SqlConnectionFactory, EntityFramework" />
+  </entityFramework>
+  <appSettings>
+    <add key="ElibomUsername" value="" />
+    <add key="ElibomPassword" value="" />
+    <add key="ClientSettingsProvider.ServiceUri" value="" />
+  </appSettings>
+</configuration>

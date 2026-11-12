@@ -1,0 +1,318 @@
+﻿<UserControl x:Class="WPF_Vehitanques.Presentacion.Controles.AdmConductores"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+               Width="auto" Height="auto" Loaded="UserControl_Loaded" Name="ctrladmconductor" >
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"  Height="auto">
+        <StackPanel Height="auto" >
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*"  ></ColumnDefinition>
+                    <ColumnDefinition Width="20*" ></ColumnDefinition>
+                    <ColumnDefinition Width="20*" ></ColumnDefinition>
+                    <ColumnDefinition Width="5*"></ColumnDefinition>
+                    <ColumnDefinition Width="5*"></ColumnDefinition>
+                    <ColumnDefinition Width="20*" ></ColumnDefinition>
+                    <ColumnDefinition Width="20*" ></ColumnDefinition>
+                    <ColumnDefinition Width="5*"></ColumnDefinition>
+                    <ColumnDefinition Width="5*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition MinHeight="20" MaxHeight="30"></RowDefinition>
+                    <RowDefinition MinHeight="20" MaxHeight="30"></RowDefinition>
+                    <RowDefinition MinHeight="20" MaxHeight="30"></RowDefinition>
+                    <RowDefinition MinHeight="20" MaxHeight="30"></RowDefinition>
+                    <RowDefinition MinHeight="20" MaxHeight="30"></RowDefinition>
+                    <RowDefinition MinHeight="20" MaxHeight="30"></RowDefinition>
+                    <RowDefinition MinHeight="20" MaxHeight="30"></RowDefinition>
+                    <RowDefinition MinHeight="20" MaxHeight="30"></RowDefinition>
+                    <RowDefinition MinHeight="20" MaxHeight="30"></RowDefinition>
+                    <RowDefinition MinHeight="20" MaxHeight="30"></RowDefinition>
+                    <RowDefinition MinHeight="20" MaxHeight="30"></RowDefinition>
+                    <RowDefinition MinHeight="20" MaxHeight="30"></RowDefinition>
+                    <RowDefinition MinHeight="20" MaxHeight="30"></RowDefinition>
+                    <RowDefinition MinHeight="30" MaxHeight="35"></RowDefinition>
+                    <RowDefinition MinHeight="20" MaxHeight="30"></RowDefinition>
+                    <RowDefinition MinHeight="30" MaxHeight="35"></RowDefinition>
+                    <RowDefinition MinHeight="20" MaxHeight="30"></RowDefinition>
+                    <RowDefinition MinHeight="40" MaxHeight="60"></RowDefinition>
+                    <RowDefinition MinHeight="40" MaxHeight="60"></RowDefinition>
+                </Grid.RowDefinitions>
+                <!--<Button Grid.Column="0" Grid.Row="0" Height="30"  VerticalAlignment="Center"   Background="LightBlue"  BorderThickness="0"   ToolTip="Ver fotografía del conductor"  >
+                                                <StackPanel Orientation="Horizontal">
+                                                    -->
+                <!--<Image Source="/Imagenes/photo1.png" Width="40" Height="25" HorizontalAlignment="Left" />-->
+                <!--
+                                                    <TextBlock>Fotografía Conductor</TextBlock>
+                                                </StackPanel>
+                                            </Button>-->
+                <StackPanel  Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" VerticalAlignment="Top" >
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100*"  ></ColumnDefinition>
+                          
+
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition MinHeight="20" MaxHeight="30"></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <RadioButton  Grid.Column="0" Grid.Row="0" Name="rdbpropio" Content="Propio" VerticalAlignment="Center" IsChecked="True" IsEnabled="False" HorizontalAlignment="Center"  ></RadioButton>
+                        
+                    </Grid>
+                </StackPanel>
+                <StackPanel  Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="3" VerticalAlignment="Top" >
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50*"  ></ColumnDefinition>
+                            <ColumnDefinition Width="50*" ></ColumnDefinition>
+                            <ColumnDefinition Width="50*" ></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition MinHeight="20" MaxHeight="30"></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        
+                        <RadioButton  Grid.Column="0" Grid.Row="0" Name="rdbactivo" Content="Activo" VerticalAlignment="Center" IsChecked="True"  ></RadioButton>
+                        <RadioButton  Grid.Column="1" Grid.Row="0" Name="rdbinactivo" Content="Inactivo" VerticalAlignment="Center"   ></RadioButton>
+                        <CheckBox  Grid.Column="2" Grid.Row="0" Name="chkPatio" Content="Patio" VerticalAlignment="Center"   ></CheckBox>
+                    </Grid>
+                </StackPanel>
+                <Label  Grid.Column="1" Grid.Row="1" Content="Tipo Doc." Height="30"  FontSize="13"  VerticalAlignment="Center"  />
+                <Border Grid.Column="2" Grid.Row="1" CornerRadius="5" BorderThickness="1" BorderBrush="Black" Height="25">
+                    <ComboBox Name="cbbtipodocumento" Background="Transparent" BorderThickness="0"  Height="25" VerticalContentAlignment="Center" FontSize="13"  TabIndex="1"/>
+                </Border>
+                <Label  Grid.Column="5" Grid.Row="1" Content="* Número" Height="30"  FontSize="13"  VerticalAlignment="Center"  />
+                <Border Grid.Column="6" Grid.Row="1" CornerRadius="5" BorderThickness="1" BorderBrush="Black" Height="25">
+                    <TextBox  Name="txtNumdocumento"   Background="Transparent" BorderThickness="0"  Height="25" MaxLength="12" VerticalContentAlignment="Center" FontSize="13"   KeyDown="textboxt_KeyDown"  PreviewKeyDown="txtNumdocumento_PreviewKeyDown" TabIndex="2"/>
+                </Border>
+                <Label Name="lblerror_documenConductor"  Grid.Column="7" Grid.Row="1" HorizontalAlignment="Center" Foreground="Red"  FontSize="14"   FontWeight="Bold" Width="40" Height="25"></Label>
+                <WrapPanel Grid.Column="8" Grid.Row="1" Orientation="Horizontal"  HorizontalAlignment="Left"  >
+                    <Button   Name="btn_cedulaconductor"   FontFamily="Arial" FontWeight="Bold"  Click="btn_cedulaconductor_Click">
+                        <WrapPanel Width="25" Height="25">
+                            <Image   Width="25" Height="25" Source="/WPF_Vehitanques;component/Iconos/document_search.png"  ToolTip="Ver Documento Cédula de Ciudadanía" ></Image>
+                        </WrapPanel>
+                    </Button>
+                </WrapPanel>
+                <Label  Grid.Column="1" Grid.Row="2" Content="* Nombre(s)" Height="30"  FontSize="13"  VerticalAlignment="Center"  />
+                <Border Grid.Column="2"  Grid.ColumnSpan="5" Grid.Row="2" CornerRadius="5" BorderThickness="1" BorderBrush="Black" Height="25">
+                    <TextBox  Name="txtnombres"   Background="Transparent" BorderThickness="0"  Height="25" MaxLength="60" VerticalContentAlignment="Center" FontSize="13"    KeyDown ="TextboxtStringShift_KeyUp"  CharacterCasing="Upper" TabIndex="3"/>
+                </Border>
+                <Label Name="lblerror_nombresCond"  Grid.Column="7" Grid.Row="2" HorizontalAlignment="Center" Foreground="Red"  FontSize="14"   FontWeight="Bold" Width="40" Height="25"></Label>
+                <Label  Grid.Column="1" Grid.Row="3" Content="* 1er Apellido" Height="30"  FontSize="13"  VerticalAlignment="Center"  />
+                <Border Grid.Column="2" Grid.Row="3" CornerRadius="5" BorderThickness="1" BorderBrush="Black" Height="25">
+                    <TextBox  Name="txtapellido1"   Background="Transparent" BorderThickness="0"  Height="25" MaxLength="50" VerticalContentAlignment="Center" FontSize="13"  KeyDown="TextboxtStringShift_KeyUp"   CharacterCasing="Upper"  TabIndex="4" />
+                </Border>
+                <Label Name="lblerror_apellido1Cond"  Grid.Column="3" Grid.Row="3" HorizontalAlignment="Center" Foreground="Red"  FontSize="14"   FontWeight="Bold" Width="40" Height="25"></Label>
+                <Label  Grid.Column="5" Grid.Row="3" Content="* 2do Apellido" Height="30"  FontSize="13"  VerticalAlignment="Center"  />
+                <Border Grid.Column="6" Grid.Row="3" CornerRadius="5" BorderThickness="1" BorderBrush="Black" Height="25">
+                    <TextBox  Name="txtapellido2"   Background="Transparent" BorderThickness="0"  Height="25" MaxLength="50" VerticalContentAlignment="Center" FontSize="13"  KeyUp="TextboxtStringShift_KeyUp"  CharacterCasing="Upper"  TabIndex="5"/>
+                </Border>
+                <Label Name="lblerror_apellido2Cond"  Grid.Column="7" Grid.Row="3" HorizontalAlignment="Center" Foreground="Red"  FontSize="14"   FontWeight="Bold" Width="40" Height="25"></Label>
+                
+                <Label  Grid.Column="5" Grid.Row="8" Content="* N° Licencia" Height="30"  FontSize="13"  VerticalAlignment="Center"  />
+                <Border Grid.Column="6" Grid.Row="8" CornerRadius="5" BorderThickness="1" BorderBrush="Black" Height="25">
+                    <TextBox  Name="txtnumlicencia"   Background="Transparent" BorderThickness="0"  Height="25" MaxLength="15" VerticalContentAlignment="Center" FontSize="13"   KeyDown="textboxt_KeyDown" TabIndex="15"/>
+                </Border>
+                <Label Name="lblerror_numlicencia"  Grid.Column="7" Grid.Row="8" HorizontalAlignment="Center" Foreground="Red"  FontSize="14"   FontWeight="Bold" Width="40" Height="25"></Label>
+                <Label  Grid.Column="1" Grid.Row="8" Content="* Categoría Lincencia" Height="30"  FontSize="13"  VerticalAlignment="Center"  />
+                <Border Grid.Column="2" Grid.Row="8" CornerRadius="5" BorderThickness="1" BorderBrush="Black" Height="25">
+                    <ComboBox Name="cbbcateglicencia" Background="Transparent" BorderThickness="0"  Height="25" VerticalContentAlignment="Center" FontSize="13" SelectionChanged="cbbcateglicencia_SelectionChanged" TabIndex="14"/>
+                </Border>
+                <Label  Grid.Column="1" Grid.Row="9" Content="* Vence Licencia Conducción" Height="30"  FontSize="13"  VerticalAlignment="Center"  />
+                <Border  Grid.Column="2" Grid.Row="9" CornerRadius="5" BorderThickness="1" BorderBrush="Black" Height="25">
+                    <DatePicker Name="dtfechalicencia" Background="Transparent" BorderThickness="0"  Height="25"  VerticalContentAlignment="Center"  FontSize="13"  CalendarClosed="dtfechalicencia_CalendarClosed" TabIndex="16">
+                        <DatePicker.Resources>
+                            <Style TargetType="DatePickerTextBox">
+                                <Setter Property="IsReadOnly" Value="True"/>
+                            </Style>
+                        </DatePicker.Resources>
+                    </DatePicker>
+                </Border>
+                <Label Name="lblerror_fechalicencia"  Grid.Column="3" Grid.Row="9" HorizontalAlignment="Center" Foreground="Red"  FontSize="14"   FontWeight="Bold" Width="40" Height="25"></Label>
+                
+                <WrapPanel Grid.Column="4" Grid.Row="9" Orientation="Horizontal"  HorizontalAlignment="Left"  >
+                    <Button   Name="btn_licenciaconductor"   FontFamily="Arial" FontWeight="Bold"  Click="btn_licenciaconductor_Click">
+                        <WrapPanel Width="25" Height="25">
+                            <Image   Width="25" Height="25" Source="/WPF_Vehitanques;component/Iconos/document_search.png"  ToolTip="Ver Documento Fecha Vencimiento Licencia de Conducción" ></Image>
+                        </WrapPanel>
+                    </Button>
+                </WrapPanel>
+                <Label  Grid.Column="5"  Grid.Row="9" Content="* Experiencia Conduciendo(Años)" Height="30"  FontSize="13"  VerticalAlignment="Center"  />
+                <Border Grid.Column="6" Grid.Row="9" CornerRadius="5" BorderThickness="1" BorderBrush="Black" Height="25">
+                    <TextBox  Name="txtexperiencia"   Background="Transparent" BorderThickness="0"  Height="25" MaxLength="2" VerticalContentAlignment="Center" FontSize="13"   KeyDown="textboxt_KeyDown" TabIndex="17"/>
+                </Border>
+                <Label Name="lblerror_experiencia"  Grid.Column="7" Grid.Row="9" HorizontalAlignment="Center" Foreground="Red"  FontSize="14"   FontWeight="Bold" Width="40" Height="25"></Label>
+
+                <Label  Grid.Column="1" Grid.Row="7" Content="* Dirección Casa" Height="30"  FontSize="13"  VerticalAlignment="Center"  />
+                <Border Grid.Column="2" Grid.Row="7"  Grid.ColumnSpan="5" CornerRadius="5" BorderThickness="1" BorderBrush="Black" Height="25">
+                    <TextBox  Name="txtdireccioncasa"   Background="Transparent" BorderThickness="0"  Height="25" MaxLength="95" VerticalContentAlignment="Center" FontSize="13"  KeyUp="TextboxtStringShift_KeyUp"  CharacterCasing="Upper" TabIndex="13" />
+                </Border>
+                <Label Name="lblerror_direccioncasa"  Grid.Column="7" Grid.Row="7" HorizontalAlignment="Center" Foreground="Red"  FontSize="14"   FontWeight="Bold" Width="40" Height="25"></Label>
+                <Label  Grid.Column="5" Grid.Row="5" Content="Teléfono Casa E Indicativo" Height="30"  FontSize="13"  VerticalAlignment="Center"  />
+                <StackPanel  Grid.Column="6" Grid.Row="5" VerticalAlignment="Center"    Width="auto">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="20*"></ColumnDefinition>
+                            <ColumnDefinition Width="80*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Border Grid.Column="0" CornerRadius="5" BorderThickness="1" BorderBrush="Black" Height="25" Width="auto">
+
+                            <TextBox  Name="txtIndicativo"   Background="Transparent" BorderThickness="0" Height="25" MaxLength="3" VerticalContentAlignment="Center" FontSize="13"  KeyDown="textboxt_KeyDown" TabIndex="9" />
+                        </Border>
+                        <Border Grid.Column="1" CornerRadius="5" BorderThickness="1" BorderBrush="Black" Height="25" >
+
+                            <TextBox  Name="txttelefonocasa"   Background="Transparent" BorderThickness="0"  Height="25" MaxLength="7" VerticalContentAlignment="Center" FontSize="13"  KeyDown="textboxt_KeyDown"  TabIndex="10"/>
+                        </Border>
+                    </Grid>
+
+                </StackPanel>
+                <Label  Grid.Column="1" Grid.Row="6" Content="* Celular" Height="30"  FontSize="13"  VerticalAlignment="Center"  />
+                <Border Grid.Column="2" Grid.Row="6" CornerRadius="5" BorderThickness="1" BorderBrush="Black" Height="25">
+                    <TextBox  Name="txtcelular"   Background="Transparent" BorderThickness="0"  Height="25" MaxLength="10" VerticalContentAlignment="Center" FontSize="13" KeyDown="textboxt_KeyDown" TabIndex="11" />
+                </Border>
+                <Label Name="lblerror_celular"  Grid.Column="3" Grid.Row="6" HorizontalAlignment="Center" Foreground="Red"  FontSize="14"   FontWeight="Bold" Width="40" Height="25"></Label>
+                
+                <Label  Grid.Column="5" Grid.Row="6" Content="RH" Height="30"  FontSize="13"  VerticalAlignment="Center"  />
+                <Border Grid.Column="6" Grid.Row="6" CornerRadius="5" BorderThickness="1" BorderBrush="Black" Height="25">
+                    <TextBox  Name="txtRH"    Background="Transparent" BorderThickness="0"  Height="25" MaxLength="4" VerticalContentAlignment="Center" FontSize="13"  KeyUp="TextboxtStringShift_KeyUp" TabIndex="12"/>
+                </Border>
+                <Label  Grid.Column="1" Grid.Row="4" Content="* Fecha Nacimiento" Height="30"  FontSize="13"  VerticalAlignment="Center"  />
+                <Border  Grid.Column="2" Grid.Row="4" CornerRadius="5" BorderThickness="1" BorderBrush="Black" Height="25">
+                    <DatePicker Name="dtfechanacimieto" Background="Transparent" BorderThickness="0"  Height="25"  VerticalContentAlignment="Center"  FontSize="13"  CalendarClosed="dtfechanacimieto_CalendarClosed" TabIndex="6" >
+                        <DatePicker.Resources>
+                            <Style TargetType="DatePickerTextBox">
+                                <Setter Property="IsReadOnly" Value="True"/>
+                            </Style>
+                        </DatePicker.Resources>
+                    </DatePicker>
+                </Border>
+                <Label Name="lblerror_fechanamcond"  Grid.Column="3" Grid.Row="4" HorizontalAlignment="Center" Foreground="Red"  FontSize="14"   FontWeight="Bold" Width="40" Height="25"></Label>
+                <Label  Grid.Column="5" Grid.Row="4" Content="* Departamento Residencia" Height="30"  FontSize="13"  VerticalAlignment="Center"  />
+                <Border Grid.Column="6" Grid.Row="4" CornerRadius="5" BorderThickness="1" BorderBrush="Black" Height="25">
+                    <ComboBox Name="cbbdeparconductor" Background="Transparent" BorderThickness="0"  Height="25" VerticalContentAlignment="Center" FontSize="13" SelectionChanged="cbbdeparconductor_SelectionChanged" TabIndex="7"/>
+                </Border>
+
+
+                <Label  Grid.Column="1" Grid.Row="5" Content="* Ciudad Residencia" Height="30"  FontSize="13"  VerticalAlignment="Center"  />
+                <Border Grid.Column="2" Grid.Row="5" CornerRadius="5" BorderThickness="1" BorderBrush="Black" Height="25">
+                    <ComboBox Name="cbbciudadconductor" Background="Transparent" BorderThickness="0"  Height="25" VerticalContentAlignment="Center" FontSize="13" TabIndex="8"/>
+                </Border>
+                <Label Name="lblerror_ciudadconductor"  Grid.Column="3" Grid.Row="5" HorizontalAlignment="Center" Foreground="Red"  FontSize="14"   FontWeight="Bold" Width="40" Height="25"></Label>
+                <Label  Grid.Column="1" Grid.Row="10" Content="* EPS" Height="30"  FontSize="13"  VerticalAlignment="Center"  />
+                <Border Grid.Column="2" Grid.Row="10" CornerRadius="5" BorderThickness="1" BorderBrush="Black" Height="25" >
+                    <TextBox  CharacterCasing="Upper"   Name="txteps"   Background="Transparent" BorderThickness="0"  Height="25" MaxLength="50" VerticalContentAlignment="Center" FontSize="13"  KeyUp="TextboxtStringShift_KeyUp" TabIndex="18" />
+                </Border>
+                <Label Name="lblerror_eps"  Grid.Column="3" Grid.Row="10" HorizontalAlignment="Center" Foreground="Red"  FontSize="14"   FontWeight="Bold" Width="40" Height="25"></Label>
+                
+                <Label  Grid.Column="5" Grid.Row="10" Content="* A.R.L" Height="30"  FontSize="13"  VerticalAlignment="Center"  />
+                <Border Grid.Column="6" Grid.Row="10" CornerRadius="5" BorderThickness="1" BorderBrush="Black" Height="25">
+                    <TextBox  CharacterCasing="Upper"  Name="txtARL"   Background="Transparent" BorderThickness="0"  Height="25" MaxLength="50" VerticalContentAlignment="Center" FontSize="13"  KeyUp="TextboxtStringShift_KeyUp" TabIndex="19" />
+                </Border>
+                <Label Name="lblerror_arl"  Grid.Column="7" Grid.Row="10" HorizontalAlignment="Center" Foreground="Red"  FontSize="14"   FontWeight="Bold" Width="40" Height="25"></Label>
+                <Label  Grid.Column="1" Grid.Row="11" Content="Fecha Pago S. Social" Height="30"  FontSize="13"  VerticalAlignment="Center"  />
+                <Border  Grid.Column="2" Grid.Row="11" CornerRadius="5" BorderThickness="1" BorderBrush="Black" Height="25">
+                    <DatePicker Name="dtfechaPagoSSocial" Background="Transparent" BorderThickness="0"  Height="25"  VerticalContentAlignment="Center"  FontSize="13"  CalendarClosed="dtfechaPagoSSocial_CalendarClosed" TabIndex="20">
+                        <DatePicker.Resources>
+                            <Style TargetType="DatePickerTextBox">
+                                <Setter Property="IsReadOnly" Value="True"/>
+                            </Style>
+                        </DatePicker.Resources>
+                    </DatePicker>
+                </Border>
+
+                <WrapPanel Grid.Column="4" Grid.Row="11" Orientation="Horizontal"  HorizontalAlignment="Left"  >
+                    <Button    Name="btn_pagoSSocial"  FontFamily="Arial" FontWeight="Bold"  Click="btn_pagoSSocial_Click">
+                        <WrapPanel Width="25" Height="25">
+                            <Image   Width="25" Height="25" Source="/WPF_Vehitanques;component/Iconos/document_search.png"  ToolTip="Ver Documento Fecha Pago Seguridad Social"></Image>
+                        </WrapPanel>
+                    </Button>
+                </WrapPanel>
+
+                <Label  Grid.Column="5"  Grid.Row="11" Content="* A.F.P" Height="30"  FontSize="13"  VerticalAlignment="Center"  />
+                <Border Grid.Column="6" Grid.Row="11" CornerRadius="5" BorderThickness="1" BorderBrush="Black" Height="25">
+                    <TextBox  Name="txtafp"    Background="Transparent" BorderThickness="0"  Height="25" MaxLength="50" VerticalContentAlignment="Center" FontSize="13"  KeyUp="TextboxtStringShift_KeyUp" TabIndex="21"/>
+                </Border>
+                <Label Name="lblerror_afp"  Grid.Column="7" Grid.Row="11" HorizontalAlignment="Center" Foreground="Red"  FontSize="14"   FontWeight="Bold" Width="40" Height="25"></Label>
+                <Label  Grid.Column="1" Grid.Row="12" Content="* Compañía por la que ingresa" Height="30"  FontSize="13"  VerticalAlignment="Center"  />
+                <Border Grid.Column="2" Grid.Row="12" CornerRadius="5" BorderThickness="1" BorderBrush="Black" Height="25">
+                    <ComboBox Name="cbbempresas" Background="Transparent" BorderThickness="0"  Height="25" VerticalContentAlignment="Center" FontSize="13"  TabIndex="22"/>
+                </Border>
+                <Label  Grid.Column="5" Grid.Row="12" Content="* Analista" Height="30"  FontSize="13"  VerticalAlignment="Center"  />
+                <Border Grid.Column="6" Grid.Row="12" CornerRadius="5" BorderThickness="1" BorderBrush="Black" Height="25">
+                    <ComboBox Name="cbbanalista" Background="Transparent" BorderThickness="0"  Height="25" VerticalContentAlignment="Center" FontSize="13" TabIndex="23"/>
+                </Border>
+
+                <Label  Grid.Column="1" Grid.Row="13" Content="* HOJA DE VIDA" Height="30"  FontSize="13"  VerticalAlignment="Center"  />
+                <WrapPanel Grid.Column="2" Grid.Row="13" Orientation="Horizontal"  HorizontalAlignment="Left"    >
+                    <Button    Name="btn_HojaDeVida"  FontFamily="Arial" FontWeight="Bold"  Click="btn_HojaDeVida_Click">
+                        <WrapPanel Width="30" Height="30">
+                            <Image   Width="30" Height="30" Source="/WPF_Vehitanques;component/Iconos/contract.png"  ToolTip="Ver Documento HOJA DE VIDA"></Image>
+                        </WrapPanel>
+                    </Button>
+                </WrapPanel>
+                <Label  Grid.Column="1" Grid.Row="14" Content="Foto Conductor" Height="30"  FontSize="13"  VerticalAlignment="Center"   />
+
+                <WrapPanel Grid.Column="2" Grid.Row="14" Orientation="Horizontal"  HorizontalAlignment="Left"  >
+                    <Button  Name="btn_FotoConductor"   FontFamily="Arial" FontWeight="Bold"  Click="btn_FotoConductor_Click">
+                        <WrapPanel Width="50" Height="25">
+                            <Image   Width="50" Height="25" Source="/WPF_Vehitanques;component/Iconos/image_capture.png" ToolTip="Ver Foto Del Conductor" ></Image>
+                        </WrapPanel>
+                    </Button>
+                </WrapPanel>
+
+                
+               
+                
+                <Button Content="CANCELAR" ToolTip="Cancelar " FontFamily="Arial" FontSize="15" FontWeight="Bold" Height="23"  HorizontalAlignment="Center"   Name="btn_Cancelar"   Width="110"  Grid.Column="2"  Grid.Row="15" Grid.ColumnSpan="4"  VerticalAlignment="Center" Click="btn_Cancelar_Click" TabIndex="24"/>
+                <WrapPanel Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="17" Orientation="Horizontal" HorizontalAlignment="Center"  Name="pnl_userAndroid"  >
+                    <Label  Grid.Column="5" Grid.Row="13" Content=" USUARIO  APLICACIÓN ANDROID  " Height="30"  FontSize="13"  VerticalAlignment="Center"   FontWeight="Bold" />
+                    
+                    <WrapPanel   >
+                        <Button  Name="btn_Usuario_Android"   FontFamily="Arial" FontWeight="Bold"  Click="btn_Usuario_Android_Click" IsEnabled="False" >
+                            <WrapPanel Width="50" Height="40">
+                                <Image   Width="50" Height="40" Source="/WPF_Vehitanques;component/Iconos/android-icon (5).png" ToolTip="Usuario Aplicación Android Conductores Propios" ></Image>
+                            </WrapPanel>
+                        </Button>
+                    </WrapPanel>
+                </WrapPanel>
+                <WrapPanel Grid.Column="5" Grid.ColumnSpan="4" Grid.Row="17" Orientation="Horizontal" HorizontalAlignment="Center"  Name="pnl_notificaciones"  >
+                    <Label  Grid.Column="5" Grid.Row="13" Content=" NOTIFICACIONES USUARIO  APLICACIÓN ANDROID  " Height="30"  FontSize="13"  VerticalAlignment="Center"   FontWeight="Bold" />
+
+                    <WrapPanel   Grid.Column="2" Grid.Row="9" Orientation="Horizontal"  HorizontalAlignment="Left" >
+                        <Button  Name="btn_MailAndroid"   FontFamily="Arial" FontWeight="Bold"  Click="btn_MailAndroid_Click" IsEnabled="False" >
+                            <WrapPanel Width="50" Height="40">
+                                <Image   Width="50" Height="40" Source="/WPF_Vehitanques;component/Iconos/Mail_icon.png" ToolTip="Administrar Notificaciones de usuario" ></Image>
+                            </WrapPanel>
+                        </Button>
+                    </WrapPanel>
+                </WrapPanel>
+                <WrapPanel Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="18" Orientation="Horizontal" HorizontalAlignment="Center"  Name="pnl_cursos"  >
+                    <Label   Content=" CURSOS CONDUCTORES " Height="30"  FontSize="13"  VerticalAlignment="Center"   FontWeight="Bold" />
+
+                    <WrapPanel    Orientation="Horizontal"  HorizontalAlignment="Left" >
+                        <Button  Name="btn_Cursos"   FontFamily="Arial" FontWeight="Bold"  Click="btn_Cursos_Click" IsEnabled="False"  >
+                            <WrapPanel Width="50" Height="40">
+                                <Image   Width="50" Height="40" Source="/WPF_Vehitanques;component/Iconos/Graduatemale.png" ToolTip="Administrar Cursos Conductores" ></Image>
+                            </WrapPanel>
+                        </Button>
+                    </WrapPanel>
+                </WrapPanel>
+                <WrapPanel Grid.Column="5" Grid.ColumnSpan="4" Grid.Row="18" Orientation="Horizontal" HorizontalAlignment="Center"  Name="pnl_examen"  >
+                    <Label   Content=" EXAMEN MÉDICO " Height="30"  FontSize="13"  VerticalAlignment="Center"   FontWeight="Bold" />
+
+                    <WrapPanel    Orientation="Horizontal"  HorizontalAlignment="Left" >
+                        <Button  Name="btn_examMedico"   FontFamily="Arial" FontWeight="Bold"  Click="btn_examMedico_Click" IsEnabled="False"  >
+                            <WrapPanel Width="50" Height="40">
+                                <Image   Width="50" Height="40" Source="/WPF_Vehitanques;component/Iconos/medical04.png" ToolTip="Administrar Examen Médico Conductores" ></Image>
+                            </WrapPanel>
+                        </Button>
+                    </WrapPanel>
+                </WrapPanel>
+
+            </Grid>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

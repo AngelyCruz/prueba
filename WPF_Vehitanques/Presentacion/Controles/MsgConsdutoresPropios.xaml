@@ -1,0 +1,93 @@
+﻿<UserControl x:Class="WPF_Vehitanques.Presentacion.Controles.MsgConsdutoresPropios"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+                Width="600" Height="AUTO" Loaded="UserControl_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50*"></ColumnDefinition>
+            <ColumnDefinition Width="50*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="250"></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Rectangle Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Grid.RowSpan="12" HorizontalAlignment="Stretch"  >
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF247AC1" Offset="0.144"/>
+                    <GradientStop Color="#FF0BCAE8" Offset="0.759"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <!--<Label  Grid.Column="0" Grid.Row="0" Content="Tipo Vehículo: " Height="30"  FontSize="13"  VerticalAlignment="Center"  HorizontalAlignment="Right" FontWeight="ExtraBlack"     Foreground="White" />
+        <Border Grid.Column="1" Grid.Row="0" CornerRadius="5" BorderThickness="1" BorderBrush="Black" Height="25"  HorizontalAlignment="Left" >
+            <ComboBox Name="cbbbtipovehiculoDisp" Background="Transparent" BorderThickness="0"  Height="25" VerticalContentAlignment="Center" FontSize="13" SelectionChanged="cbbbtipovehiculoDisp_Selected">
+            </ComboBox>
+        </Border>-->
+        <StackPanel  Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" >
+
+            <Label Content="TOTAL REGISTROS ENCONTRADOS:  " Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right" FontWeight="ExtraBlack" Foreground="White"  ></Label>
+            <Label Name="lbltotal" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left"  FontWeight="ExtraBlack" ></Label>
+
+        </StackPanel>
+
+        <StackPanel Name="pnl_PaginacionDisp" Orientation="Horizontal" HorizontalAlignment="Center"  VerticalAlignment="Bottom"   MaxHeight="30" Grid.Row="4" Grid.Column="0 " Grid.ColumnSpan="8">
+            <Button Margin="4,0" Content="Ant." Name="btn_antDisp" IsEnabled=" false" MinHeight="22" MinWidth="35" TabIndex="3"  Click="btn_antDisp_Click"  />
+            <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                <TextBlock Text="Seleccionado registros del " Foreground="White"   FontWeight="ExtraBlack" />
+                <TextBlock Name ="lbl_InicioDisp" Text="" Foreground="White"  FontWeight="ExtraBlack"/>
+                <TextBlock Text=" al " Foreground="White"  FontWeight="ExtraBlack"/>
+                <TextBlock Name ="lbl_FinDisp" Text="" Foreground="White" FontWeight="ExtraBlack"/>
+                <TextBlock Text=" de " Foreground="White" FontWeight="ExtraBlack" />
+                <TextBlock Name ="lbl_TotalDisp" Text="" Foreground="White"  FontWeight="ExtraBlack"/>
+            </StackPanel>
+            <Button Name="btn_sigDisp" Margin="4,0" Content="Sig." MinHeight="22" MinWidth="35" TabIndex="4" Click="btn_sigDisp_Click"   />
+        </StackPanel >
+        <Button Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="0" Content="CONSULTA" FontFamily="Arial" FontSize="15" FontWeight="Bold" Height="23"  HorizontalAlignment="Center"   Name="btn_CArgarDAtos"   Width="270"     VerticalAlignment="Center" Click="btn_CArgarDAtos_Click"   />
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center" >
+
+            <RadioButton Name="rdbactivo" Content=" Activo        " FontFamily="Arial" FontSize="15" FontWeight="Bold" Foreground="White" IsChecked="True" ></RadioButton>
+            <RadioButton Name="rdbinactivo" Content=" Inactivo        " FontFamily="Arial" FontSize="15" FontWeight="Bold" Foreground="White"  ></RadioButton>
+        </StackPanel>
+
+        <Button Content="VENTANA MENSAJES DE TEXTO" FontFamily="Arial" FontSize="15" FontWeight="Bold" Height="23"  HorizontalAlignment="Center"   Name="btn_VentanaMsg"   Width="270"    Grid.Row="6" Grid.ColumnSpan="2" Grid.Column="0"  VerticalAlignment="Center" Click="btn_VentanaMsg_Click"   />
+        <Label  Width="300" HorizontalAlignment="Center" VerticalAlignment="Center"   Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" HorizontalContentAlignment="Center"  >
+
+            <TextBlock TextWrapping="WrapWithOverflow"    FontWeight="Black" Foreground="Red"   HorizontalAlignment="Stretch"  FontSize="16"   >
+                
+                NOTA
+            </TextBlock>
+        </Label>
+
+        <Label  Width="300" HorizontalAlignment="Center" VerticalAlignment="Stretch"  Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2" HorizontalContentAlignment="Center"  >
+
+            <TextBlock TextWrapping="WrapWithOverflow"    FontWeight="Black" Foreground="MidnightBlue"  HorizontalAlignment="Stretch"   >
+                
+                Para enviar los mensajes de texto se hace por bloques, 
+                estos dependen de la cantidad de registros disponibles que aparezcan en la numeración, 
+                ejemplo si la numeración muestra de 1 a 400 de 550 esto quiere decir que enviará el mensaje a los primeros 400 contactos, 
+                para enviar a los siguientes 150 se debe dar clik en el boton "sig" de la paginación 
+                y luego volver a abrir la ventana envio mensaje de texto....
+            </TextBlock>
+        </Label>
+        <Label  Width="350" HorizontalAlignment="Center" VerticalAlignment="Stretch"  Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2" HorizontalContentAlignment="Center"  >
+
+            <TextBlock TextWrapping="WrapWithOverflow"    FontWeight="Black" Foreground="MidnightBlue"  HorizontalAlignment="Stretch"   >
+                               
+                SI LOS BOTONES DE PAGINACIÓN NO APARECEN ES PORQUE LA CANTIDAD NO SUEPERA LOS 400 REGISTROS
+            </TextBlock>
+        </Label>
+
+    </Grid>
+</UserControl>

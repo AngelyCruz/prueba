@@ -1,0 +1,52 @@
+﻿<UserControl x:Class="WPF_Vehitanques.Presentacion.Controles.ctrSoatMasivoPropios"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             Width="auto" Height="auto" Loaded="UserControl_Loaded">
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"  Height="auto" >
+        <StackPanel Height="auto" >
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*"  ></ColumnDefinition>
+                    <ColumnDefinition Width="20*" ></ColumnDefinition>
+                    <ColumnDefinition Width="25*" ></ColumnDefinition>
+                    <ColumnDefinition Width="20*" ></ColumnDefinition>            
+                    <ColumnDefinition Width="25*" ></ColumnDefinition>    
+                    <ColumnDefinition Width="5*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition MinHeight="30" MaxHeight="50"></RowDefinition>
+                    <RowDefinition MinHeight="30" MaxHeight="50"></RowDefinition>
+                    <RowDefinition MinHeight="30" MaxHeight="50"></RowDefinition>
+                    <RowDefinition MinHeight="30" MaxHeight="50"></RowDefinition>
+                    <RowDefinition MinHeight="30" MaxHeight="50"></RowDefinition>
+                    <RowDefinition Height="10"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label Content="Tipo de Póliza: " HorizontalAlignment="Right"   Grid.Column="1" Grid.Row="0"></Label>
+                <Border  CornerRadius="5" BorderThickness="1" BorderBrush="Black" Height="25" HorizontalAlignment="Left"  Grid.Row="0" Grid.Column="2">
+                    <ComboBox Name="cbbtipodoc" Background="Transparent" BorderThickness="0"  Height="25" VerticalContentAlignment="Center" FontSize="13"   />
+                </Border>
+                
+                <Label Content="Aseguradora: " HorizontalAlignment="Left"  Grid.Column="3" Grid.Row="0"></Label>
+                    <Border  CornerRadius="5" BorderThickness="1" BorderBrush="Black" Height="25" HorizontalAlignment="Left"  Grid.Row="0" Grid.Column=" 4">
+                        <ComboBox Name="cbbciasoat" Background="Transparent" BorderThickness="0"  Height="25" VerticalContentAlignment="Center" FontSize="13"   />
+                    </Border>
+                <Label Content="Prefijo SOAT: " HorizontalAlignment="Right"   Grid.Column="1" Grid.Row="1"></Label>
+                <Border Grid.Column="2" Grid.Row="1" CornerRadius="5" BorderThickness="1" BorderBrush="Black" Height="25" HorizontalAlignment="Left" >
+                    <TextBox CharacterCasing="Upper"   Name="txtprefijo" Text="AT1318"  Background="Transparent" BorderThickness="0"  Height="25" MaxLength="6" VerticalContentAlignment="Center" FontSize="13"    KeyUp="TextboxtStringShift_KeyUp" KeyDown="TextboxtStringShift_KeyUp"  />
+                </Border>
+
+                <ProgressBar  Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="4" Minimum="0" Maximum="100" Name="_SetProgressBar" MaxWidth="600" />
+                <Label  Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Content="Seleccione Excel con el listado de Pólizas: " Height="30"  FontSize="13"  VerticalAlignment="Center"   HorizontalAlignment="Right" />
+                <Button Content="Buscar Excel Pólizas" Height="25" HorizontalAlignment="Stretch" Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="2"   Name="btn_Examinar" VerticalAlignment="Top" Width="199" FontFamily="Arial" FontWeight="Bold" Click="btn_Examinar_Click" />
+
+               
+
+                <Label  Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="4" Content="Seleccione la carpeta donde se encuentran las Pólizas: " Height="30"  FontSize="13"  VerticalAlignment="Center"   />
+                <Button Content="Buscar Carpeta Archivos Pólizas" Height="25" HorizontalAlignment="Stretch" Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="2"  Name="btn_archivossoat" VerticalAlignment="Top" Width="199" FontFamily="Arial" FontWeight="Bold" Click="btn_archivossoat_Click" />
+
+            </Grid>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

@@ -1,0 +1,238 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AndroidModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="And_ConsultaContadorTotalNofiticacionesOperacionActivas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NitOperacion" Type="numeric" Mode="In" />
+        </Function>
+        <Function Name="And_ConsultaContadorTotalNofiticacionesUsuarioActivas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Idusuario" Type="numeric" Mode="In" />
+        </Function>
+        <Function Name="And_ConsultaEstados" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="And_ConsultaNotificacionOperPorId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdNotificacion" Type="numeric" Mode="In" />
+        </Function>
+        <Function Name="And_ConsultaNotificacionUsrPorId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdNotificacion" Type="numeric" Mode="In" />
+        </Function>
+        <Function Name="And_ConsultaOperacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="And_ConsultaTotalNofiticacionesOperacionActivas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NitOperacion" Type="numeric" Mode="In" />
+          <Parameter Name="Star" Type="int" Mode="In" />
+          <Parameter Name="End" Type="int" Mode="In" />
+        </Function>
+        <Function Name="And_ConsultaTotalNofiticacionesUsuarioActivas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Idusuario" Type="numeric" Mode="In" />
+          <Parameter Name="Star" Type="int" Mode="In" />
+          <Parameter Name="End" Type="int" Mode="In" />
+        </Function>
+        <Function Name="And_ConsultaUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdUsuario" Type="numeric" Mode="In" />
+        </Function>
+        <EntityContainer Name="AndroidModelStoreContainer" />
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AndroidModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="AndroidEntities" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="And_ConsultaOperacion" ReturnType="Collection(AndroidModel.And_ConsultaOperacion_Result)" />
+          <FunctionImport Name="And_ConsultaEstados" ReturnType="Collection(AndroidModel.And_ConsultaEstados_Result)" />
+          <FunctionImport Name="And_ConsultaUsuario" ReturnType="Collection(AndroidModel.And_ConsultaUsuario_Result)">
+          <Parameter Name="IdUsuario" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="And_ConsultaContadorTotalNofiticacionesUsuarioActivas" ReturnType="Collection(Int32)">
+          <Parameter Name="Idusuario" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="And_ConsultaTotalNofiticacionesUsuarioActivas" ReturnType="Collection(AndroidModel.And_ConsultaTotalNofiticacionesUsuarioActivas_Result)">
+            <Parameter Name="Idusuario" Mode="In" Type="Decimal" />
+            <Parameter Name="Star" Mode="In" Type="Int32" />
+            <Parameter Name="End" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="And_ConsultaNotificacionUsrPorId" ReturnType="Collection(AndroidModel.And_ConsultaNotificacionUsrPorId_Result)">
+          <Parameter Name="IdNotificacion" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="And_ConsultaContadorTotalNofiticacionesOperacionActivas" ReturnType="Collection(Int32)">
+            <Parameter Name="NitOperacion" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="And_ConsultaNotificacionOperPorId" ReturnType="Collection(AndroidModel.And_ConsultaNotificacionOperPorId_Result)">
+            <Parameter Name="IdNotificacion" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="And_ConsultaTotalNofiticacionesOperacionActivas" ReturnType="Collection(AndroidModel.And_ConsultaTotalNofiticacionesOperacionActivas_Result)">
+            <Parameter Name="NitOperacion" Mode="In" Type="Decimal" />
+            <Parameter Name="Star" Mode="In" Type="Int32" />
+            <Parameter Name="End" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="And_ConsultaOperacion_Result">
+          <Property Type="Decimal" Name="NitOperacion" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="DescripcionOper" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="And_ConsultaEstados_Result">
+          <Property Type="Int32" Name="IdEstado" Nullable="false" />
+          <Property Type="String" Name="DescripEstado" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="And_ConsultaUsuario_Result">
+          <Property Type="Decimal" Name="IdUsuario" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="Clave" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Apellidos" Nullable="false" MaxLength="50" />
+          <Property Type="Decimal" Name="NitOperacion" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IsEstado" Nullable="false" />
+          <Property Type="DateTime" Name="FechaRegistro" Nullable="false" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="And_ConsultaTotalNofiticacionesUsuarioActivas_Result">
+          <Property Type="Decimal" Name="IdNotificacion" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="Idusuario" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="FechaRegistro" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="Idestado" Nullable="true" />
+          <Property Type="String" Name="DescripcionNotificacion" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="DescripEstado" Nullable="true" MaxLength="50" />
+          <Property Type="Int64" Name="RowNumber" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="And_ConsultaNotificacionUsrPorId_Result">
+          <Property Type="Decimal" Name="IdNotificacion" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="Idusuario" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="FechaRegistro" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="Idestado" Nullable="true" />
+          <Property Type="String" Name="DescripcionNotificacion" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="FechaActualizacion" Nullable="true" Precision="23" />
+          <Property Type="String" Name="UsuarioCrea" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="UsuarioModifica" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="And_ConsultaNotificacionOperPorId_Result">
+          <Property Type="Decimal" Name="IdNotificacion" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="NitOperacion" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="FechaRegistro" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="Idestado" Nullable="false" />
+          <Property Type="String" Name="DescripcionNotificacion" Nullable="false" MaxLength="100" />
+          <Property Type="DateTime" Name="FechaActualizacion" Nullable="true" Precision="23" />
+          <Property Type="String" Name="UsuarioCrea" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="UsuarioModifica" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="And_ConsultaTotalNofiticacionesOperacionActivas_Result">
+          <Property Type="Decimal" Name="IdNotificacion" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="NitOperacion" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="FechaRegistro" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="Idestado" Nullable="false" />
+          <Property Type="String" Name="DescripcionNotificacion" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="DescripEstado" Nullable="true" MaxLength="50" />
+          <Property Type="Int64" Name="RowNumber" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AndroidModelStoreContainer" CdmEntityContainer="AndroidEntities" >
+          <FunctionImportMapping FunctionImportName="And_ConsultaOperacion" FunctionName="AndroidModel.Store.And_ConsultaOperacion">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AndroidModel.And_ConsultaOperacion_Result">
+                <ScalarProperty Name="NitOperacion" ColumnName="NitOperacion" />
+                <ScalarProperty Name="DescripcionOper" ColumnName="DescripcionOper" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="And_ConsultaEstados" FunctionName="AndroidModel.Store.And_ConsultaEstados">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AndroidModel.And_ConsultaEstados_Result">
+                <ScalarProperty Name="IdEstado" ColumnName="IdEstado" />
+                <ScalarProperty Name="DescripEstado" ColumnName="DescripEstado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="And_ConsultaUsuario" FunctionName="AndroidModel.Store.And_ConsultaUsuario">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AndroidModel.And_ConsultaUsuario_Result">
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="Clave" ColumnName="Clave" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="NitOperacion" ColumnName="NitOperacion" />
+                <ScalarProperty Name="IsEstado" ColumnName="IsEstado" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="And_ConsultaContadorTotalNofiticacionesUsuarioActivas" FunctionName="AndroidModel.Store.And_ConsultaContadorTotalNofiticacionesUsuarioActivas" />
+          <FunctionImportMapping FunctionImportName="And_ConsultaTotalNofiticacionesUsuarioActivas" FunctionName="AndroidModel.Store.And_ConsultaTotalNofiticacionesUsuarioActivas">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AndroidModel.And_ConsultaTotalNofiticacionesUsuarioActivas_Result">
+                <ScalarProperty Name="IdNotificacion" ColumnName="IdNotificacion" />
+                <ScalarProperty Name="Idusuario" ColumnName="Idusuario" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+                <ScalarProperty Name="Idestado" ColumnName="Idestado" />
+                <ScalarProperty Name="DescripcionNotificacion" ColumnName="DescripcionNotificacion" />
+                <ScalarProperty Name="DescripEstado" ColumnName="DescripEstado" />
+                <ScalarProperty Name="RowNumber" ColumnName="RowNumber" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="And_ConsultaNotificacionUsrPorId" FunctionName="AndroidModel.Store.And_ConsultaNotificacionUsrPorId">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AndroidModel.And_ConsultaNotificacionUsrPorId_Result">
+                <ScalarProperty Name="IdNotificacion" ColumnName="IdNotificacion" />
+                <ScalarProperty Name="Idusuario" ColumnName="Idusuario" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+                <ScalarProperty Name="Idestado" ColumnName="Idestado" />
+                <ScalarProperty Name="DescripcionNotificacion" ColumnName="DescripcionNotificacion" />
+                <ScalarProperty Name="FechaActualizacion" ColumnName="FechaActualizacion" />
+                <ScalarProperty Name="UsuarioCrea" ColumnName="UsuarioCrea" />
+                <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="And_ConsultaContadorTotalNofiticacionesOperacionActivas" FunctionName="AndroidModel.Store.And_ConsultaContadorTotalNofiticacionesOperacionActivas" />
+          <FunctionImportMapping FunctionImportName="And_ConsultaNotificacionOperPorId" FunctionName="AndroidModel.Store.And_ConsultaNotificacionOperPorId">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AndroidModel.And_ConsultaNotificacionOperPorId_Result">
+                <ScalarProperty Name="IdNotificacion" ColumnName="IdNotificacion" />
+                <ScalarProperty Name="NitOperacion" ColumnName="NitOperacion" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+                <ScalarProperty Name="Idestado" ColumnName="Idestado" />
+                <ScalarProperty Name="DescripcionNotificacion" ColumnName="DescripcionNotificacion" />
+                <ScalarProperty Name="FechaActualizacion" ColumnName="FechaActualizacion" />
+                <ScalarProperty Name="UsuarioCrea" ColumnName="UsuarioCrea" />
+                <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="And_ConsultaTotalNofiticacionesOperacionActivas" FunctionName="AndroidModel.Store.And_ConsultaTotalNofiticacionesOperacionActivas">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AndroidModel.And_ConsultaTotalNofiticacionesOperacionActivas_Result">
+                <ScalarProperty Name="IdNotificacion" ColumnName="IdNotificacion" />
+                <ScalarProperty Name="NitOperacion" ColumnName="NitOperacion" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+                <ScalarProperty Name="Idestado" ColumnName="Idestado" />
+                <ScalarProperty Name="DescripcionNotificacion" ColumnName="DescripcionNotificacion" />
+                <ScalarProperty Name="DescripEstado" ColumnName="DescripEstado" />
+                <ScalarProperty Name="RowNumber" ColumnName="RowNumber" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

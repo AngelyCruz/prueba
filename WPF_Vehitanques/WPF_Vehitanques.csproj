@@ -1,0 +1,1480 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6BD0AB4A-D7E6-48D8-844D-20B6456746CB}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WPF_Vehitanques</RootNamespace>
+    <AssemblyName>WPF_Vehitanques</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <PublishUrl>\\141.0.0.193\Despliegues\Vehitanques\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Unc</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ProductName>Vehitanques</ProductName>
+    <PublisherName>COLTANQUES</PublisherName>
+    <SuiteName>Vehitanques</SuiteName>
+    <MinimumRequiredVersion>1.0.0.273</MinimumRequiredVersion>
+    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
+    <ApplicationRevision>11</ApplicationRevision>
+    <ApplicationVersion>1.0.2020.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>transport.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>0044292BF986F8BDF0960E8C7135124ABFBB520F</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>
+    </ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Elibom">
+      <HintPath>..\..\..\..\..\Proyectos\DLL Utiles\Elibom.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\Proyectos_documentacion\DLL Utiles\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Microsoft Visual Studio 12.0\ReportViewer\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="WpfAnimatedGif, Version=1.4.14.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WpfAnimatedGif.1.4.14\lib\net\WpfAnimatedGif.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="BLL\AnalistaBLL.cs" />
+    <Compile Include="BLL\AndroidBLL.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BLL\Andr_NotificacionesOperacionBLL.cs" />
+    <Compile Include="BLL\Andr_NotificacionesUsuarioBLL.cs" />
+    <Compile Include="BLL\Andr_Operaciones.cs" />
+    <Compile Include="BLL\ComprobantesBLL.cs" />
+    <Compile Include="BLL\ContratoBLL.cs" />
+    <Compile Include="BLL\CorreoBLL.cs" />
+    <Compile Include="BLL\CursoBLL.cs" />
+    <Compile Include="BLL\EmpresaBLL.cs" />
+    <Compile Include="BLL\MSGBLL.cs" />
+    <Compile Include="BLL\PolizaBLL.cs" />
+    <Compile Include="BLL\PolizaRCBLL.cs" />
+    <Compile Include="BLL\VetoBLL.cs" />
+    <Compile Include="DS\DSAndroid.Designer.cs">
+      <DependentUpon>DSAndroid.xsd</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="DS\DSContrato.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSContrato.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DS\DSCursos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSCursos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DS\DSDocumentos.cs">
+      <DependentUpon>DSDocumentos.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DS\DSEmpSatelital.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSEmpSatelital.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DS\DSMensajesTexto.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSMensajesTexto.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DS\DSPolizaHC.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSPolizaHC.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DS\DsPolizaRC.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsPolizaRC.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DS\DSRemolque.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSRemolque.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DS\DSreporteAndroid.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSreporteAndroid.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DS\DSReporteDocumentos.cs">
+      <DependentUpon>DSReporteDocumentos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DS\DSReporteDocumentos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSReporteDocumentos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DS\DSSecurity.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSSecurity.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DS\DSVehiculo.cs">
+      <DependentUpon>DSVehiculo.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DS\DSVeto.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSVeto.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\And_ConsultaEstados_Result.cs">
+      <DependentUpon>ModeloAndroid.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modelo\And_ConsultaNotificacionOperPorId_Result.cs">
+      <DependentUpon>ModeloAndroid.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\And_ConsultaNotificacionUsrPorId_Result.cs">
+      <DependentUpon>ModeloAndroid.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\And_ConsultaOperacion_Result.cs">
+      <DependentUpon>ModeloAndroid.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modelo\And_ConsultaTotalNofiticacionesOperacionActivas_Result.cs">
+      <DependentUpon>ModeloAndroid.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\And_ConsultaTotalNofiticacionesUsuarioActivas_Result.cs">
+      <DependentUpon>ModeloAndroid.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\And_ConsultaUsuario_Result.cs">
+      <DependentUpon>ModeloAndroid.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modelo\CRM_FechaSistemaBD_Result.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\ModeloAndroid.Context.cs">
+      <DependentUpon>ModeloAndroid.Context.tt</DependentUpon>
+      <SubType>Code</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Modelo\ModeloAndroid.cs">
+      <DependentUpon>ModeloAndroid.tt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Modelo\ModeloAndroid.Designer.cs">
+      <DependentUpon>ModeloAndroid.edmx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Modelo\TipoDocIdentificacion_V1.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\VehiT_Autorizar_CambioRiesgo_Result.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\VehiT_ConsultaAgenciaPorID_Result.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\VehiT_ConsultaAnalistas_Result.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\VehiT_ConsultaBeneficiarioPorPlaca_Result.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\VehiT_ConsultaBeneficiario_Result.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\VehiT_ConsultaComprobantesPropietarioXCedula_Result.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\VehiT_ConsultaConductorAsociadoXPlaca_IdConductor_Result.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\VehiT_ConsultaConductorAsociadoXPlaca_Result.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\VehiT_ConsultaConductoresPropiosMasivoMSG_Result.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\VehiT_ConsultaConductor_Propio_Result.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\VehiT_ConsultaConductor_Result.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\VehiT_ConsultaContrato_Result.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\VehiT_ConsultaCursosConductor_Result.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\VehiT_ConsultaCursosPorConductor_Result.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\Vehit_ConsultaCursosPorGrupo_Result.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\Vehit_ConsultaDatosPersonaReportada_Result.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\Vehit_ConsultaDatosvehiculoReportado_Result.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\Vehit_ConsultaDocumentosTipoPoliza_Result.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\VehiT_ConsultaDocumentoXPlaca_Identificador_Result.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\VehiT_ConsultaEmpresaComp_Result.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\VehiT_ConsultaEmpSAtelitalPorNombre_Nit_Result.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\VehiT_ConsultaEmpSAtelitalPor_ID_Result.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\VehiT_ConsultaEmpSAtelitalPor_Nit_Result.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\VehiT_ConsultaExistenciadeContrato_Result.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\VehiT_ConsultaExistenciadeVehiculo_Result.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\Vehit_ConsultaGrupoCursosConductor_Result.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\VehiT_ConsultaHistoricoPolizasHC_Result.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\VehiT_ConsultaHojadeVidaVehiculo_Result.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\VehiT_ConsultaMarcaVEhiculoXID_Result.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\Vehit_ConsultaNumerosCopiaMSG_Result.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\Vehit_ConsultaParametrosPorCursoconductor_Result.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\VehiT_ConsultaPolizaXNumPoliza_Result.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\VehiT_ConsultaPropietario_Result.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\VehiT_ConsultaRemolqueInternacional_Result.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\VehiT_ConsultaRemolqueXPlaca_Result.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\VehiT_ConsultarVehiculoXplaca_condu_propi_Result.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\VehiT_ConsultarVehiculoXplaca_Result.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\VehiT_ConsultaTiposVehiculo_Result.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\VehiT_ConsultaTotalVehiProgMantenimeinto_Result.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\Vehit_NivelRiestoConductor.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Controles\AdmConductores.xaml.cs">
+      <DependentUpon>AdmConductores.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Controles\AdminBeneficiarioPropietario.xaml.cs">
+      <DependentUpon>AdminBeneficiarioPropietario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Controles\admnotificacionesOperacionAndroid.xaml.cs">
+      <DependentUpon>admnotificacionesOperacionAndroid.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Controles\AdmReportados.xaml.cs">
+      <DependentUpon>AdmReportados.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Controles\AdmTipoVehiculo.xaml.cs">
+      <DependentUpon>AdmTipoVehiculo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Controles\ComprobantesPropietario.xaml.cs">
+      <DependentUpon>ComprobantesPropietario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Controles\ConductoresPropios.xaml.cs">
+      <DependentUpon>ConductoresPropios.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Controles\Ctrl_rptpolizasrcpropios.xaml.cs">
+      <DependentUpon>Ctrl_rptpolizasrcpropios.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Controles\ctrSoatMasivoPropios.xaml.cs">
+      <DependentUpon>ctrSoatMasivoPropios.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Controles\ctr_msgconductorespropios.xaml.cs">
+      <DependentUpon>ctr_msgconductorespropios.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Controles\documentosRemolque.xaml.cs">
+      <DependentUpon>documentosRemolque.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Controles\EmpresaSatelital.xaml.cs">
+      <DependentUpon>EmpresaSatelital.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Controles\MsgConsdutoresPropios.xaml.cs">
+      <DependentUpon>MsgConsdutoresPropios.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Controles\ProgramadosMantenimiento.xaml.cs">
+      <DependentUpon>ProgramadosMantenimiento.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Controles\RptDocumentosVencidos.xaml.cs">
+      <DependentUpon>RptDocumentosVencidos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Controles\rptEventosAndroid.xaml.cs">
+      <DependentUpon>rptEventosAndroid.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Controles\rpt_vehiculos.xaml.cs">
+      <DependentUpon>rpt_vehiculos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Ventanas\AdmCursosConductor.xaml.cs">
+      <DependentUpon>AdmCursosConductor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Ventanas\AdmDocumentos.xaml.cs">
+      <DependentUpon>AdmDocumentos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Ventanas\AdmExamMedico.xaml.cs">
+      <DependentUpon>AdmExamMedico.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Ventanas\admInfoBancariaConductor.xaml.cs">
+      <DependentUpon>admInfoBancariaConductor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Ventanas\admnotificacionesusuarioAndroid.xaml.cs">
+      <DependentUpon>admnotificacionesusuarioAndroid.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Ventanas\AdmPolizaHC.xaml.cs">
+      <DependentUpon>AdmPolizaHC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Ventanas\AdmUserAndroid.xaml.cs">
+      <DependentUpon>AdmUserAndroid.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Ventanas\AprobarContratos.xaml.cs">
+      <DependentUpon>AprobarContratos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Ventanas\CambiarEstadoVehiculo.xaml.cs">
+      <DependentUpon>CambiarEstadoVehiculo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Ventanas\EnvioMsgDeTexto.xaml.cs">
+      <DependentUpon>EnvioMsgDeTexto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Ventanas\VentanaGrillaAlertas.xaml.cs">
+      <DependentUpon>VentanaGrillaAlertas.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Ventanas\VentanaMantenimiento.xaml.cs">
+      <DependentUpon>VentanaMantenimiento.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SecurityVariables.cs" />
+    <Compile Include="Utilidades\CompresorImagenes.cs" />
+    <Compile Include="Utilidades\DigitoVerificacion.cs" />
+    <Compile Include="Utilidades\Email.cs" />
+    <Compile Include="Utilidades\Encriptar.cs" />
+    <Compile Include="Utilidades\GeneradorPassword.cs" />
+    <Compile Include="Utilidades\Numeric.cs" />
+    <Compile Include="Utilidades\Permisos.cs" />
+    <Compile Include="Utilidades\UserMsg.cs" />
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BLL\AfiliacionBLL.cs" />
+    <Compile Include="BLL\AgenciaBLL.cs" />
+    <Compile Include="BLL\AseguradoraBLL.cs" />
+    <Compile Include="BLL\BancoBLL.cs" />
+    <Compile Include="BLL\CarroceriaBLL.cs" />
+    <Compile Include="BLL\CiudadBLL.cs" />
+    <Compile Include="BLL\ColorBLL.cs" />
+    <Compile Include="BLL\ConductorBLL.cs" />
+    <Compile Include="BLL\CuentaBLL.cs" />
+    <Compile Include="BLL\DepartamentoBLL.cs" />
+    <Compile Include="BLL\DocumentosBLL.cs" />
+    <Compile Include="BLL\EmpresaSatelitalBLL.cs" />
+    <Compile Include="BLL\EstadoBLL.cs" />
+    <Compile Include="BLL\LicenciaBLL.cs" />
+    <Compile Include="BLL\LineaBLL.cs" />
+    <Compile Include="BLL\LLantasBLL.cs" />
+    <Compile Include="BLL\MarcasBLL.cs" />
+    <Compile Include="BLL\MensajeBLL.cs" />
+    <Compile Include="BLL\MotorBLL.cs" />
+    <Compile Include="BLL\PropietarioBeneficiarioBLL.cs" />
+    <Compile Include="BLL\RemolqueBLL.cs" />
+    <Compile Include="BLL\SeguridadBLL.cs" />
+    <Compile Include="BLL\TanqueBLL.cs" />
+    <Compile Include="BLL\TipoDocumentoBLL.cs" />
+    <Compile Include="BLL\UnidadMedidaBLL.cs" />
+    <Compile Include="BLL\VehiculoBLL.cs" />
+    <Compile Include="Documentos\Documentos.cs" />
+    <Compile Include="DS\DSConductor.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSConductor.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DS\DSDocumentos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSDocumentos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DS\DSMensajes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSMensajes.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DS\DSPropietarioBeneficiario.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSPropietarioBeneficiario.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DS\DSVehiculo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSVehiculo.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Presentacion\Controles\AdmConductores.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentacion\Controles\AdminBeneficiarioPropietario.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentacion\Controles\admnotificacionesOperacionAndroid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentacion\Controles\AdmReportados.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentacion\Controles\AdmTipoVehiculo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentacion\Controles\ComprobantesPropietario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentacion\Controles\ConductoresPropios.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentacion\Controles\Ctrl_rptpolizasrcpropios.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentacion\Controles\ctrSoatMasivoPropios.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentacion\Controles\ctr_msgconductorespropios.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentacion\Controles\documentosRemolque.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentacion\Controles\EmpresaSatelital.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentacion\Controles\InicioConsulta.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentacion\Controles\InicioVehiculos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentacion\Controles\MsgConsdutoresPropios.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentacion\Controles\ProgramadosMantenimiento.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentacion\Controles\RptDocumentosVencidos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentacion\Controles\rptEventosAndroid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentacion\Controles\rpt_vehiculos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentacion\Ventanas\AdmCursosConductor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentacion\Ventanas\AdmDocumentos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentacion\Ventanas\AdmExamMedico.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentacion\Ventanas\admInfoBancariaConductor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentacion\Ventanas\admnotificacionesusuarioAndroid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentacion\Ventanas\AdmPolizaHC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentacion\Ventanas\AdmUserAndroid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentacion\Ventanas\AprobarContratos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentacion\Ventanas\CambiarEstadoVehiculo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentacion\Ventanas\EnvioMsgDeTexto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentacion\Ventanas\VentanaGrillaAlertas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentacion\Ventanas\VentanaMantenimiento.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentacion\Ventanas\VentanaMensaje.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Modelo\Act_Log.cs">
+      <DependentUpon>ModeloSeguridad.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\Aseguradoras.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\aspnet_Applications.cs">
+      <DependentUpon>ModeloSeguridad.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\aspnet_ApplicationsMenu.cs">
+      <DependentUpon>ModeloSeguridad.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\aspnet_ApplicationsUsers.cs">
+      <DependentUpon>ModeloSeguridad.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\aspnet_Audit.cs">
+      <DependentUpon>ModeloSeguridad.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\aspnet_Membership.cs">
+      <DependentUpon>ModeloSeguridad.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\aspnet_MembershipTipos.cs">
+      <DependentUpon>ModeloSeguridad.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\aspnet_Parameters.cs">
+      <DependentUpon>ModeloSeguridad.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\aspnet_Paths.cs">
+      <DependentUpon>ModeloSeguridad.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\aspnet_PersonalizationAllUsers.cs">
+      <DependentUpon>ModeloSeguridad.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\aspnet_PersonalizationPerUser.cs">
+      <DependentUpon>ModeloSeguridad.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\aspnet_Profile.cs">
+      <DependentUpon>ModeloSeguridad.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\aspnet_Roles.cs">
+      <DependentUpon>ModeloSeguridad.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\aspnet_RolesMenu.cs">
+      <DependentUpon>ModeloSeguridad.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\aspnet_SchemaVersions.cs">
+      <DependentUpon>ModeloSeguridad.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\aspnet_Session.cs">
+      <DependentUpon>ModeloSeguridad.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\aspnet_tracker.cs">
+      <DependentUpon>ModeloSeguridad.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\aspnet_Users.cs">
+      <DependentUpon>ModeloSeguridad.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\aspnet_UsersInRoles.cs">
+      <DependentUpon>ModeloSeguridad.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\aspnet_WebEvent_Events.cs">
+      <DependentUpon>ModeloSeguridad.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\ClaseTanque.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\Details_Trans.cs">
+      <DependentUpon>ModeloSeguridad.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\EjesVehiculo.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\GruposVehiculos.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\ModeloSeguridad.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModeloSeguridad.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\ModeloSeguridad.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModeloSeguridad.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\ModeloSeguridad.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModeloSeguridad.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\Redirect.cs">
+      <DependentUpon>ModeloSeguridad.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\seguridad_Child.cs">
+      <DependentUpon>ModeloSeguridad.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\seguridad_consultarMenuPermisos2_Result.cs">
+      <DependentUpon>ModeloSeguridad.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\seguridad_Main.cs">
+      <DependentUpon>ModeloSeguridad.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\seguridad_MainRole.cs">
+      <DependentUpon>ModeloSeguridad.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\seguridad_WebEvent.cs">
+      <DependentUpon>ModeloSeguridad.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\sysdiagrams.cs">
+      <DependentUpon>ModeloSeguridad.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\TipoAfiliacion.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\TipoDocumentosHojaVehiculo.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\TipoMotorVehiculo.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\VehitanquesModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VehitanquesModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\VehitanquesModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\VehitanquesModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VehitanquesModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\VehiT_ConsultaAgencias_Result.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\VehiT_ConsultaBancoConductor_Result.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\VehiT_ConsultaCategorialicencia_Result.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\VehiT_ConsultaCiudad_Result.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\VehiT_ConsultaColoresVehiculo_Result.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\VehiT_ConsultaCompniasatelital_Result.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\VehiT_ConsultaDepartamento_Result.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\VehiT_ConsultaEstadoPlaca_Result.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\VehiT_ConsultaEstadoPorPlaca_Result.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\VehiT_ConsultaLineaVehiculo_Result.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\VehiT_ConsultaRutaDocumentos_Result.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\VehiT_ConsultaTamanioDocumentos_Result.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\VehiT_ConsultaTipoCarroceria_Result.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\VehiT_ConsultaTipoCuenta_Result.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\VehiT_ConsultaTipoDocumentos_Result.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\VehiT_ConsultaUnidadDeMedidaPesoCarga_Result.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\VehiT_ConsultMarcasRemolque_Result.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\VehiT_ConsultMarcasVehiculo_Result.cs">
+      <DependentUpon>VehitanquesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Controles\InicioConsulta.xaml.cs">
+      <DependentUpon>InicioConsulta.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Controles\InicioVehiculos.xaml.cs">
+      <DependentUpon>InicioVehiculos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Ventanas\VentanaMensaje.xaml.cs">
+      <DependentUpon>VentanaMensaje.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rptDocumentosVencidosConductor.rdlc" />
+    <EmbeddedResource Include="Reportes\rptDocumentosVencidosRemolque.rdlc" />
+    <EmbeddedResource Include="Reportes\rptDocumentosVencidosVehiculos.rdlc" />
+    <EmbeddedResource Include="Reportes\RptEventosAndroidConductores.rdlc" />
+    <EmbeddedResource Include="Reportes\rpt_infovehiculos.rdlc" />
+    <EmbeddedResource Include="Reportes\rpt_polizasRCPropios.rdlc" />
+    <EntityDeploy Include="Modelo\ModeloAndroid.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModeloAndroid.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="Modelo\VehitanquesModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>VehitanquesModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="Modelo\ModeloSeguridad.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModeloSeguridad.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DS\DSAndroid.xsc">
+      <DependentUpon>DSAndroid.xsd</DependentUpon>
+    </None>
+    <None Include="DS\DSAndroid.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSAndroid.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS\DSAndroid.xss">
+      <DependentUpon>DSAndroid.xsd</DependentUpon>
+    </None>
+    <None Include="DS\DSConductor.xsc">
+      <DependentUpon>DSConductor.xsd</DependentUpon>
+    </None>
+    <None Include="DS\DSConductor.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSConductor.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS\DSConductor.xss">
+      <DependentUpon>DSConductor.xsd</DependentUpon>
+    </None>
+    <None Include="DS\DSContrato.xsc">
+      <DependentUpon>DSContrato.xsd</DependentUpon>
+    </None>
+    <None Include="DS\DSContrato.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSContrato.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS\DSContrato.xss">
+      <DependentUpon>DSContrato.xsd</DependentUpon>
+    </None>
+    <None Include="DS\DSCursos.xsc">
+      <DependentUpon>DSCursos.xsd</DependentUpon>
+    </None>
+    <None Include="DS\DSCursos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSCursos.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS\DSCursos.xss">
+      <DependentUpon>DSCursos.xsd</DependentUpon>
+    </None>
+    <None Include="DS\DSDocumentos.xsc">
+      <DependentUpon>DSDocumentos.xsd</DependentUpon>
+    </None>
+    <None Include="DS\DSDocumentos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSDocumentos.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS\DSDocumentos.xss">
+      <DependentUpon>DSDocumentos.xsd</DependentUpon>
+    </None>
+    <None Include="DS\DSEmpSatelital.xsc">
+      <DependentUpon>DSEmpSatelital.xsd</DependentUpon>
+    </None>
+    <None Include="DS\DSEmpSatelital.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSEmpSatelital.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS\DSEmpSatelital.xss">
+      <DependentUpon>DSEmpSatelital.xsd</DependentUpon>
+    </None>
+    <None Include="DS\DSMensajes.xsc">
+      <DependentUpon>DSMensajes.xsd</DependentUpon>
+    </None>
+    <None Include="DS\DSMensajes.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSMensajes.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS\DSMensajes.xss">
+      <DependentUpon>DSMensajes.xsd</DependentUpon>
+    </None>
+    <None Include="DS\DSMensajesTexto.xsc">
+      <DependentUpon>DSMensajesTexto.xsd</DependentUpon>
+    </None>
+    <None Include="DS\DSMensajesTexto.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSMensajesTexto.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS\DSMensajesTexto.xss">
+      <DependentUpon>DSMensajesTexto.xsd</DependentUpon>
+    </None>
+    <None Include="DS\DSPolizaHC.xsc">
+      <DependentUpon>DSPolizaHC.xsd</DependentUpon>
+    </None>
+    <None Include="DS\DSPolizaHC.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSPolizaHC.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS\DSPolizaHC.xss">
+      <DependentUpon>DSPolizaHC.xsd</DependentUpon>
+    </None>
+    <None Include="DS\DsPolizaRC.xsc">
+      <DependentUpon>DsPolizaRC.xsd</DependentUpon>
+    </None>
+    <None Include="DS\DsPolizaRC.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsPolizaRC.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS\DsPolizaRC.xss">
+      <DependentUpon>DsPolizaRC.xsd</DependentUpon>
+    </None>
+    <None Include="DS\DSPropietarioBeneficiario.xsc">
+      <DependentUpon>DSPropietarioBeneficiario.xsd</DependentUpon>
+    </None>
+    <None Include="DS\DSPropietarioBeneficiario.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSPropietarioBeneficiario.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS\DSPropietarioBeneficiario.xss">
+      <DependentUpon>DSPropietarioBeneficiario.xsd</DependentUpon>
+    </None>
+    <None Include="DS\DSRemolque.xsc">
+      <DependentUpon>DSRemolque.xsd</DependentUpon>
+    </None>
+    <None Include="DS\DSRemolque.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSRemolque.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS\DSRemolque.xss">
+      <DependentUpon>DSRemolque.xsd</DependentUpon>
+    </None>
+    <None Include="DS\DSreporteAndroid.xsc">
+      <DependentUpon>DSreporteAndroid.xsd</DependentUpon>
+    </None>
+    <None Include="DS\DSreporteAndroid.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSreporteAndroid.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS\DSreporteAndroid.xss">
+      <DependentUpon>DSreporteAndroid.xsd</DependentUpon>
+    </None>
+    <None Include="DS\DSReporteDocumentos.xsc">
+      <DependentUpon>DSReporteDocumentos.xsd</DependentUpon>
+    </None>
+    <None Include="DS\DSReporteDocumentos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSReporteDocumentos.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS\DSReporteDocumentos.xss">
+      <DependentUpon>DSReporteDocumentos.xsd</DependentUpon>
+    </None>
+    <None Include="DS\DSSecurity.xsc">
+      <DependentUpon>DSSecurity.xsd</DependentUpon>
+    </None>
+    <None Include="DS\DSSecurity.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSSecurity.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS\DSSecurity.xss">
+      <DependentUpon>DSSecurity.xsd</DependentUpon>
+    </None>
+    <None Include="DS\DSVehiculo.xsc">
+      <DependentUpon>DSVehiculo.xsd</DependentUpon>
+    </None>
+    <None Include="DS\DSVehiculo.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSVehiculo.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS\DSVehiculo.xss">
+      <DependentUpon>DSVehiculo.xsd</DependentUpon>
+    </None>
+    <None Include="DS\DSVeto.xsc">
+      <DependentUpon>DSVeto.xsd</DependentUpon>
+    </None>
+    <None Include="DS\DSVeto.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSVeto.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS\DSVeto.xss">
+      <DependentUpon>DSVeto.xsd</DependentUpon>
+    </None>
+    <None Include="Modelo\ModeloAndroid.edmx.diagram">
+      <DependentUpon>ModeloAndroid.edmx</DependentUpon>
+    </None>
+    <None Include="Modelo\ModeloSeguridad.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModeloSeguridad.edmx</DependentUpon>
+      <LastGenOutput>ModeloSeguridad.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Modelo\ModeloSeguridad.edmx.diagram">
+      <DependentUpon>ModeloSeguridad.edmx</DependentUpon>
+    </None>
+    <None Include="Modelo\ModeloSeguridad.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModeloSeguridad.edmx</DependentUpon>
+      <LastGenOutput>ModeloSeguridad.cs</LastGenOutput>
+    </None>
+    <None Include="Modelo\VehitanquesModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>VehitanquesModel.edmx</DependentUpon>
+      <LastGenOutput>VehitanquesModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Modelo\VehitanquesModel.edmx.diagram">
+      <DependentUpon>VehitanquesModel.edmx</DependentUpon>
+    </None>
+    <None Include="Modelo\VehitanquesModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>VehitanquesModel.edmx</DependentUpon>
+      <LastGenOutput>VehitanquesModel.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+    <None Include="WPF_Vehitanques_ClaveTemporal.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Iconos\Alerta_Roja.png" />
+    <Resource Include="Iconos\cai_truck_256.png" />
+    <Resource Include="Iconos\camion.png" />
+    <Resource Include="Iconos\camionRojo.png" />
+    <Resource Include="Iconos\Circle_Green.png" />
+    <Resource Include="Iconos\Circle_Red.png" />
+    <Resource Include="Iconos\Credit-Card-icon.png" />
+    <Resource Include="Iconos\credit_cards.png" />
+    <Resource Include="Iconos\credit_card_64.png" />
+    <Resource Include="Iconos\credit_card_red.png" />
+    <Resource Include="Iconos\credit_card_yellow.png" />
+    <Resource Include="Iconos\credit_master_card.png" />
+    <Resource Include="Iconos\document_search.png" />
+    <Resource Include="Iconos\Excel.png" />
+    <Resource Include="Iconos\GIF.png" />
+    <Resource Include="Iconos\IconEscritorio.png" />
+    <Resource Include="Iconos\IconTruckRed.png" />
+    <Resource Include="Iconos\IconTruckYellow.png" />
+    <Resource Include="Iconos\image_capture.png" />
+    <Resource Include="Iconos\jpeg.png" />
+    <Resource Include="Iconos\jpg.png" />
+    <Resource Include="Iconos\Large-truck-icon-1106111328.png" />
+    <Resource Include="Iconos\PDF.png" />
+    <Resource Include="Iconos\placas-amarilla.png" />
+    <Resource Include="Iconos\PNG.png" />
+    <Resource Include="Iconos\Switch-128.png" />
+    <Resource Include="Iconos\switch_off.png" />
+    <Resource Include="Iconos\transport.ico" />
+    <Resource Include="Iconos\word.png" />
+    <Resource Include="Imagenes\actualizar.png" />
+    <Resource Include="Imagenes\add.png" />
+    <Resource Include="Imagenes\Alarmas.ico" />
+    <Resource Include="Imagenes\amarillo.png" />
+    <Resource Include="Imagenes\arrow down.png" />
+    <Resource Include="Imagenes\arrow left.png" />
+    <Resource Include="Imagenes\arrow right.png" />
+    <Resource Include="Imagenes\arrow up.png" />
+    <Resource Include="Imagenes\autorizar.png" />
+    <Resource Include="Imagenes\blanco.png" />
+    <Resource Include="Imagenes\Buscar.jpg" />
+    <Resource Include="Imagenes\Buscar.png" />
+    <Resource Include="Imagenes\Buscar1.jpg" />
+    <Resource Include="Imagenes\cambiar_ruta.png" />
+    <Resource Include="Imagenes\cliente.jpg" />
+    <Resource Include="Imagenes\consultar.png" />
+    <Resource Include="Imagenes\eliminar.png" />
+    <Resource Include="Imagenes\Error.png" />
+    <Resource Include="Imagenes\excel.jpg" />
+    <Resource Include="Imagenes\fotografia.png" />
+    <Resource Include="Imagenes\Fuel_Tanker.png" />
+    <Resource Include="Imagenes\Gas-Station.ico" />
+    <Resource Include="Imagenes\grabar.png" />
+    <Resource Include="Imagenes\gris.png" />
+    <Resource Include="Imagenes\Info %282%29.png" />
+    <Resource Include="Imagenes\Info.png" />
+    <Resource Include="Imagenes\Logo.bmp" />
+    <Resource Include="Imagenes\Logo40.png" />
+    <Resource Include="Imagenes\logoColtanques.jpg" />
+    <Resource Include="Imagenes\LogoMini - copia.png" />
+    <Resource Include="Imagenes\LogoMini.png" />
+    <Resource Include="Imagenes\LogoOk.png" />
+    <Resource Include="Imagenes\minus.png" />
+    <Resource Include="Imagenes\naranja.png" />
+    <Resource Include="Imagenes\Network-Service.ICO" />
+    <Resource Include="Imagenes\nuevo.png" />
+    <Resource Include="Imagenes\NuevoEve.png" />
+    <Resource Include="Imagenes\Print.png" />
+    <Resource Include="Imagenes\reloj.png" />
+    <Resource Include="Imagenes\rojo.png" />
+    <Resource Include="Imagenes\salir.jpg" />
+    <Resource Include="Imagenes\salir.png" />
+    <Resource Include="Imagenes\usergorra.png" />
+    <Resource Include="Imagenes\users.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\coltanques_vehiculo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="transport.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Iconos\tanquetruck.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Iconos\contract.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Iconos\stop1normal.png" />
+    <Resource Include="Iconos\stop1normalred.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="Microsoft.ReportViewer.Common">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Microsoft.ReportViewer.DataVisualization">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Microsoft.ReportViewer.ProcessingObjectModel">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Microsoft.ReportViewer.WinForms">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Microsoft.SqlServer.Types">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="WPF_Vehitanques.pdb">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Iconos\5b50e8945d7f578f7f25a5cf03343eb7.jpg" />
+    <Resource Include="Iconos\7ad12c4e49d8998959d7b3628f123cc4.jpg" />
+    <Resource Include="Iconos\Bank-Check-icon.png" />
+    <Resource Include="Iconos\carteira-de-identidade_318-47491.jpg" />
+    <Resource Include="Iconos\Check-icon.png" />
+    <Resource Include="Iconos\checked.png" />
+    <Resource Include="Iconos\Checklist-512.png" />
+    <Resource Include="Iconos\checklist-icon %281%29.png" />
+    <Resource Include="Iconos\Checklist-icon %282%29.png" />
+    <Resource Include="Iconos\checklist-icon-blue-blue-checklist-document-19.png" />
+    <Resource Include="Iconos\checklist-icon.png" />
+    <Resource Include="Iconos\folder-customer-icon.png" />
+    <Resource Include="Iconos\fondoreloj.png" />
+    <Resource Include="Iconos\id_card.png" />
+    <Resource Include="Iconos\lists.png" />
+    <Resource Include="Iconos\nofoto.jpg" />
+    <Resource Include="Iconos\picture-check-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Iconos\preferences_contact_list.png" />
+    <Resource Include="Iconos\refresh.png" />
+    <Resource Include="Iconos\RUT %281%29.jpg" />
+    <Resource Include="Iconos\rut_1.png" />
+    <Resource Include="Iconos\sign-no-camera.jpg" />
+    <Resource Include="Iconos\stock-vector-vector-form-with-pen-and-checklist-icon-159030686.jpg" />
+    <Resource Include="Iconos\stop_sign.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Iconos\Student-id.png" />
+    <Resource Include="Iconos\Student-id_35758.png" />
+    <Resource Include="Iconos\user-check-icon.png" />
+    <Resource Include="Iconos\User-Computer-icon.png" />
+    <Resource Include="Iconos\User-Files-icon.png" />
+    <Resource Include="Iconos\User-icon.png" />
+    <Resource Include="Iconos\vector-checklist-icon-red-white-67245959.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Iconos\dian_.jpg" />
+    <Resource Include="Iconos\logoDIAN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Iconos\Gnome-application-certificate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Iconos\Android-FileTransfer-icon.png" />
+    <Resource Include="Iconos\android-icon %281%29.png" />
+    <Resource Include="Iconos\Android-icon %282%29.png" />
+    <Resource Include="Iconos\Android-icon %283%29.png" />
+    <Resource Include="Iconos\Android-icon %284%29.png" />
+    <Resource Include="Iconos\android-icon %285%29.png" />
+    <Resource Include="Iconos\android-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Iconos\Mail.png" />
+    <Resource Include="Iconos\mailbox_mail.png" />
+    <Resource Include="Iconos\Mail_icon.png" />
+    <Resource Include="Iconos\edit.png" />
+    <Resource Include="Iconos\editmail.png" />
+    <Resource Include="Iconos\emaildelete.png" />
+    <Resource Include="Iconos\Graduatemale.png" />
+    <Resource Include="Iconos\alert.png" />
+    <Resource Include="Iconos\Gif\Imagen-animada-Construccion.gif" />
+    <Resource Include="Iconos\Gif\TgC_construccion.gif" />
+    <Resource Include="Iconos\medical03.png" />
+    <Resource Include="Iconos\medical04.png" />
+    <Resource Include="Iconos\synsUp.png" />
+    <Resource Include="Iconos\shutdown.png" />
+    <Resource Include="Iconos\shutdown1.png" />
+    <Resource Include="Imagenes\edit_documen.png" />
+    <Resource Include="Iconos\all_left_arrow.png" />
+    <Resource Include="Iconos\all_right_arrow.png" />
+    <Resource Include="Iconos\arrow_left.png" />
+    <Resource Include="Iconos\arrow_left_.png" />
+    <Resource Include="Iconos\arrow_right.png" />
+    <Resource Include="Iconos\arrow_right_.png" />
+    <Resource Include="Iconos\cabezote.png" />
+    <Resource Include="Iconos\CambiarCorredor.png" />
+    <Resource Include="Iconos\city.png" />
+    <Resource Include="Iconos\coin_delete.png" />
+    <Resource Include="Iconos\delete.png" />
+    <Resource Include="Iconos\deleteblack_red.png" />
+    <Resource Include="Iconos\delete_db.png" />
+    <Resource Include="Iconos\DigitalDisplay.png" />
+    <Resource Include="Iconos\dispatch_cross.png" />
+    <Resource Include="Iconos\dispatch_diskette.png" />
+    <Resource Include="Iconos\dispatch_help.png" />
+    <Resource Include="Iconos\dispatch_info.png" />
+    <Resource Include="Iconos\dispatch_lock_open.png" />
+    <Resource Include="Iconos\dispatch_order_add.png" />
+    <Resource Include="Iconos\dispatch_order_arrow_right.png" />
+    <Resource Include="Iconos\dispatch_refresh.png" />
+    <Resource Include="Iconos\Escolta1.png" />
+    <Resource Include="Iconos\Escolta2.png" />
+    <Resource Include="Iconos\Escolta3.png" />
+    <Resource Include="Iconos\Escolta4.png" />
+    <Resource Include="Iconos\fingerprint %281%29.png" />
+    <Resource Include="Iconos\fingerprint.png" />
+    <Resource Include="Iconos\fingerprint2.png" />
+    <Resource Include="Iconos\finger_print.png" />
+    <Resource Include="Iconos\Forklift-Boxes_35552.png" />
+    <Resource Include="Iconos\Goback.png" />
+    <Resource Include="Iconos\Green-Cargo-Boxes_35542.png" />
+    <Resource Include="Iconos\History.png" />
+    <Resource Include="Iconos\kmixdocked_error.png" />
+    <Resource Include="Iconos\lorrygreen.ico" />
+    <Resource Include="Iconos\money.png" />
+    <Resource Include="Iconos\money1.png" />
+    <Resource Include="Iconos\money2.png" />
+    <Resource Include="Iconos\montacarga1.png" />
+    <Resource Include="Iconos\montacarga2.png" />
+    <Resource Include="Iconos\mountains.png" />
+    <Resource Include="Iconos\ok_14384.png" />
+    <Resource Include="Iconos\ok_shopping.png" />
+    <Resource Include="Iconos\player_end_arrow.png" />
+    <Resource Include="Iconos\player_fwd_arrow.png" />
+    <Resource Include="Iconos\player_rew_arrow.png" />
+    <Resource Include="Iconos\player_start_arrow.png" />
+    <Resource Include="Iconos\Red-Cargo-Boxes_35543.png" />
+    <Resource Include="Iconos\report1.png" />
+    <Resource Include="Iconos\report2.png" />
+    <Resource Include="Iconos\report3.png" />
+    <Resource Include="Iconos\report4.png" />
+    <Resource Include="Iconos\SeguroDEstado.jpg" />
+    <Resource Include="Iconos\seguros-del-estado.png" />
+    <Resource Include="Iconos\segurosDelEstado.jpg" />
+    <Resource Include="Iconos\shield_ok.png" />
+    <Resource Include="Iconos\Stacker_Truck.png" />
+    <Resource Include="Iconos\stock_vector.jpg" />
+    <Resource Include="Iconos\task_list.png" />
+    <Resource Include="Iconos\vector_checklist.jpg" />
+    <Resource Include="Iconos\vigilado-superintendencia-financiera.png" />
+    <Resource Include="Iconos\vigilante_superintenden.PNG" />
+    <Resource Include="Iconos\write.png" />
+    <Resource Include="Iconos\reportSEO-icon.png" />
+    <Resource Include="Iconos\mobile_marketing.png" />
+    <Resource Include="Iconos\add_insert.png" />
+    <Content Include="Modelo\ModeloAndroid.Context.tt">
+      <DependentUpon>ModeloAndroid.edmx</DependentUpon>
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ModeloAndroid.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Modelo\ModeloAndroid.tt">
+      <DependentUpon>ModeloAndroid.edmx</DependentUpon>
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ModeloAndroid.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

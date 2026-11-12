@@ -1,0 +1,1584 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="aspnetdb_ColtanquesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'aspnetdb_Coltanques.dbo.Act_Log' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Act_Log">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="DataReg" />
+            <PropertyRef Name="IpCliente" />
+            <PropertyRef Name="Usuario" />
+            <PropertyRef Name="AplName" />
+            <PropertyRef Name="UrlDestino" />
+            <PropertyRef Name="UrlOrigen" />
+            <PropertyRef Name="Acceso" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DataReg" Type="datetime" Nullable="false" />
+          <Property Name="IpCliente" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Usuario" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AplName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UrlDestino" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="UrlOrigen" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Acceso" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="aspnet_Applications">
+          <Key>
+            <PropertyRef Name="ApplicationId" />
+          </Key>
+          <Property Name="ApplicationName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="LoweredApplicationName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="256" />
+          <Property Name="urlApplication" Type="nvarchar" MaxLength="256" />
+          <Property Name="ApplicationType" Type="varchar" MaxLength="10" />
+          <Property Name="lastVersionDate" Type="datetime" />
+          <Property Name="lastVersionSerial" Type="varchar" MaxLength="20" />
+          <Property Name="daysPasswordChange" Type="smallint" />
+        </EntityType>
+        <EntityType Name="aspnet_ApplicationsMenu">
+          <Key>
+            <PropertyRef Name="idMenu" />
+          </Key>
+          <Property Name="idMenu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="nombreMenu" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="idMenuPadre" Type="int" Nullable="false" />
+          <Property Name="orden" Type="int" Nullable="false" />
+          <Property Name="link" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="visible" Type="smallint" Nullable="false" />
+          <Property Name="alterno" Type="smallint" />
+        </EntityType>
+        <EntityType Name="aspnet_ApplicationsUsers">
+          <Key>
+            <PropertyRef Name="idAppUsrs" />
+          </Key>
+          <Property Name="idAppUsrs" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RoleId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="openSessions" Type="int" />
+        </EntityType>
+        <EntityType Name="aspnet_Audit">
+          <Key>
+            <PropertyRef Name="idAudit" />
+          </Key>
+          <Property Name="idAudit" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ApplicationName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ActivityDate" Type="datetime" Nullable="false" />
+          <Property Name="EventName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Detail" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="aspnet_Membership">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="PasswordFormat" Type="int" Nullable="false" />
+          <Property Name="PasswordSalt" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="MobilePIN" Type="nvarchar" MaxLength="16" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="LoweredEmail" Type="nvarchar" MaxLength="256" />
+          <Property Name="PasswordQuestion" Type="nvarchar" MaxLength="256" />
+          <Property Name="PasswordAnswer" Type="nvarchar" MaxLength="128" />
+          <Property Name="IsApproved" Type="bit" Nullable="false" />
+          <Property Name="IsLockedOut" Type="bit" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="LastLoginDate" Type="datetime" Nullable="false" />
+          <Property Name="LastPasswordChangedDate" Type="datetime" Nullable="false" />
+          <Property Name="LastLockoutDate" Type="datetime" Nullable="false" />
+          <Property Name="FailedPasswordAttemptCount" Type="int" Nullable="false" />
+          <Property Name="FailedPasswordAttemptWindowStart" Type="datetime" Nullable="false" />
+          <Property Name="FailedPasswordAnswerAttemptCount" Type="int" Nullable="false" />
+          <Property Name="FailedPasswordAnswerAttemptWindowStart" Type="datetime" Nullable="false" />
+          <Property Name="Comment" Type="ntext" />
+          <Property Name="idAgencia" Type="int" />
+          <Property Name="idTipo" Type="int" />
+          <Property Name="codigo" Type="nvarchar" MaxLength="10" />
+          <Property Name="cedula" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'aspnetdb_Coltanques.dbo.aspnet_MembershipTipos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="aspnet_MembershipTipos">
+          <Key>
+            <PropertyRef Name="idTipo" />
+            <PropertyRef Name="nombreTipo" />
+          </Key>
+          <Property Name="idTipo" Type="int" Nullable="false" />
+          <Property Name="nombreTipo" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'aspnetdb_Coltanques.dbo.aspnet_Parameters' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="aspnet_Parameters">
+          <Key>
+            <PropertyRef Name="idParameter" />
+          </Key>
+          <Property Name="idParameter" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="parameterName" Type="varchar" MaxLength="50" />
+          <Property Name="parameterValue" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="aspnet_Paths">
+          <Key>
+            <PropertyRef Name="PathId" />
+          </Key>
+          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PathId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Path" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="LoweredPath" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="aspnet_PersonalizationAllUsers">
+          <Key>
+            <PropertyRef Name="PathId" />
+          </Key>
+          <Property Name="PathId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PageSettings" Type="image" Nullable="false" />
+          <Property Name="LastUpdatedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="aspnet_PersonalizationPerUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PathId" Type="uniqueidentifier" />
+          <Property Name="UserId" Type="uniqueidentifier" />
+          <Property Name="PageSettings" Type="image" Nullable="false" />
+          <Property Name="LastUpdatedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="aspnet_Profile">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PropertyNames" Type="ntext" Nullable="false" />
+          <Property Name="PropertyValuesString" Type="ntext" Nullable="false" />
+          <Property Name="PropertyValuesBinary" Type="image" Nullable="false" />
+          <Property Name="LastUpdatedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="aspnet_Roles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RoleId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RoleName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="LoweredRoleName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="aspnet_RolesMenu">
+          <Key>
+            <PropertyRef Name="idRoleMenu" />
+          </Key>
+          <Property Name="idRoleMenu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RoleId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="idMenu" Type="int" Nullable="false" />
+          <Property Name="Nuevo" Type="smallint" Nullable="false" />
+          <Property Name="Grabar" Type="smallint" Nullable="false" />
+          <Property Name="Actualizar" Type="smallint" Nullable="false" />
+          <Property Name="Eliminar" Type="smallint" Nullable="false" />
+          <Property Name="Consultar" Type="smallint" Nullable="false" />
+          <Property Name="Autorizar" Type="smallint" Nullable="false" />
+          <Property Name="Salir" Type="smallint" Nullable="false" />
+          <Property Name="Imprimir" Type="smallint" Nullable="false" />
+          <Property Name="Exportar" Type="smallint" Nullable="false" />
+          <Property Name="Menu" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="aspnet_SchemaVersions">
+          <Key>
+            <PropertyRef Name="Feature" />
+            <PropertyRef Name="CompatibleSchemaVersion" />
+          </Key>
+          <Property Name="Feature" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="CompatibleSchemaVersion" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="IsCurrentVersion" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="aspnet_Session">
+          <Key>
+            <PropertyRef Name="idSession" />
+          </Key>
+          <Property Name="idSession" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="idUser" Type="varchar" MaxLength="20" />
+          <Property Name="nombreUser" Type="varchar" MaxLength="100" />
+          <Property Name="emailUser" Type="varchar" MaxLength="200" />
+          <Property Name="fechaCreacion" Type="datetime" />
+          <Property Name="fechaExpiracion" Type="datetime" />
+          <Property Name="estado" Type="int" />
+          <Property Name="fechaEstado" Type="datetime" />
+        </EntityType>
+        <EntityType Name="aspnet_tracker">
+          <Key>
+            <PropertyRef Name="idSoporte" />
+          </Key>
+          <Property Name="idSoporte" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fechaCreacion" Type="datetime" />
+          <Property Name="usuarioCrea" Type="varchar" MaxLength="50" />
+          <Property Name="empresa" Type="varchar" MaxLength="100" />
+          <Property Name="aplicacion" Type="varchar" MaxLength="100" />
+          <Property Name="fechaInicio" Type="datetime" />
+          <Property Name="fechaFinal" Type="datetime" />
+          <Property Name="detalleSoporte" Type="varchar" MaxLength="500" />
+          <Property Name="horas" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="tarifa" Type="int" />
+          <Property Name="valorServicio" Type="int" />
+          <Property Name="facturable" Type="smallint" />
+          <Property Name="estado" Type="int" />
+          <Property Name="factura" Type="varchar" MaxLength="50" />
+          <Property Name="fechaFra" Type="datetime" />
+          <Property Name="pagoFactura" Type="datetime" />
+        </EntityType>
+        <EntityType Name="aspnet_Users">
+          <Key>
+            <PropertyRef Name="ApplicationId" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="LoweredUserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="MobileAlias" Type="nvarchar" MaxLength="16" />
+          <Property Name="IsAnonymous" Type="bit" Nullable="false" />
+          <Property Name="LastActivityDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="aspnet_UsersInRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RoleId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="aspnet_WebEvent_Events">
+          <Key>
+            <PropertyRef Name="EventId" />
+          </Key>
+          <Property Name="EventId" Type="char" MaxLength="32" Nullable="false" />
+          <Property Name="EventTimeUtc" Type="datetime" Nullable="false" />
+          <Property Name="EventTime" Type="datetime" Nullable="false" />
+          <Property Name="EventType" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="EventSequence" Type="decimal" Precision="19" Scale="0" Nullable="false" />
+          <Property Name="EventOccurrence" Type="decimal" Precision="19" Scale="0" Nullable="false" />
+          <Property Name="EventCode" Type="int" Nullable="false" />
+          <Property Name="EventDetailCode" Type="int" Nullable="false" />
+          <Property Name="Message" Type="nvarchar" MaxLength="1024" />
+          <Property Name="ApplicationPath" Type="nvarchar" MaxLength="256" />
+          <Property Name="ApplicationVirtualPath" Type="nvarchar" MaxLength="256" />
+          <Property Name="MachineName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="RequestUrl" Type="nvarchar" MaxLength="1024" />
+          <Property Name="ExceptionType" Type="nvarchar" MaxLength="256" />
+          <Property Name="Details" Type="ntext" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'aspnetdb_Coltanques.dbo.ConductoresLisTRA' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="ConductoresLisTRA">
+          <Property Name="archivo" Type="varchar" MaxLength="200" />
+          <Property Name="fechaArchivo" Type="datetime" />
+          <Property Name="fechaProceso" Type="datetime" />
+          <Property Name="tipoDato" Type="smallint" />
+          <Property Name="valor1" Type="varchar" MaxLength="50" />
+          <Property Name="valor2" Type="varchar" MaxLength="50" />
+          <Property Name="valor3" Type="varchar" MaxLength="50" />
+          <Property Name="usuario" Type="varchar" MaxLength="30" />
+        </EntityType>-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'aspnetdb_Coltanques.dbo.Details_Trans' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Details_Trans">
+          <Key>
+            <PropertyRef Name="IdRow" />
+            <PropertyRef Name="IdPlc" />
+            <PropertyRef Name="IdLln" />
+            <PropertyRef Name="Descripcion" />
+            <PropertyRef Name="Tipo" />
+          </Key>
+          <Property Name="IdRow" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdPlc" Type="int" Nullable="false" />
+          <Property Name="IdLln" Type="int" Nullable="false" />
+          <Property Name="Descripcion" Type="nchar" MaxLength="250" Nullable="false" />
+          <Property Name="Tipo" Type="nchar" MaxLength="1" Nullable="false" />
+          <Property Name="T" Type="nchar" MaxLength="250" />
+          <Property Name="N" Type="float" />
+          <Property Name="D" Type="datetime" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'aspnetdb_Coltanques.dbo.Redirect' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Redirect">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="IP" />
+            <PropertyRef Name="Usuario" />
+            <PropertyRef Name="Acceso" />
+            <PropertyRef Name="UrlDestino" />
+            <PropertyRef Name="UrlOrigen" />
+            <PropertyRef Name="AplName" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IP" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Usuario" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Acceso" Type="int" Nullable="false" />
+          <Property Name="UrlDestino" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="UrlOrigen" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="AplName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="fechaCreacion" Type="datetime" />
+        </EntityType>
+        <EntityType Name="seguridad_Child">
+          <Key>
+            <PropertyRef Name="idSubMenu" />
+          </Key>
+          <Property Name="idSubMenu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idMenu" Type="int" />
+          <Property Name="subMenuName" Type="nvarchar" MaxLength="100" />
+          <Property Name="link" Type="nvarchar" MaxLength="250" />
+          <Property Name="visible" Type="smallint" />
+          <Property Name="orden" Type="smallint" />
+          <Property Name="linkType" Type="smallint" />
+        </EntityType>
+        <EntityType Name="seguridad_Main">
+          <Key>
+            <PropertyRef Name="idMenu" />
+          </Key>
+          <Property Name="idMenu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ApplicationName" Type="varchar" MaxLength="100" />
+          <Property Name="menuName" Type="varchar" MaxLength="100" />
+          <Property Name="link" Type="varchar" MaxLength="250" />
+          <Property Name="visible" Type="smallint" />
+          <Property Name="orden" Type="smallint" />
+        </EntityType>
+        <EntityType Name="seguridad_MainRole">
+          <Key>
+            <PropertyRef Name="idMenuRole" />
+          </Key>
+          <Property Name="idMenuRole" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ApplicationName" Type="varchar" MaxLength="100" />
+          <Property Name="idMenu" Type="int" />
+          <Property Name="idSubMenu" Type="int" />
+          <Property Name="RoleName" Type="varchar" MaxLength="2000" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'aspnetdb_Coltanques.dbo.seguridad_WebEvent' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="seguridad_WebEvent">
+          <Key>
+            <PropertyRef Name="idEvent" />
+          </Key>
+          <Property Name="idEvent" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fechaEvento" Type="datetime" />
+          <Property Name="appName" Type="nvarchar" MaxLength="100" />
+          <Property Name="maquina" Type="nvarchar" MaxLength="100" />
+          <Property Name="usuario" Type="nvarchar" MaxLength="100" />
+          <Property Name="url" Type="nvarchar" MaxLength="500" />
+          <Property Name="source" Type="nvarchar" MaxLength="100" />
+          <Property Name="mensaje" Type="nvarchar" MaxLength="500" />
+          <Property Name="stackTrace" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK__aspnet_Me__Appli__21B6055D">
+          <End Role="aspnet_Applications" Type="Self.aspnet_Applications" Multiplicity="1" />
+          <End Role="aspnet_Membership" Type="Self.aspnet_Membership" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Applications">
+              <PropertyRef Name="ApplicationId" />
+            </Principal>
+            <Dependent Role="aspnet_Membership">
+              <PropertyRef Name="ApplicationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Pa__Appli__5AEE82B9">
+          <End Role="aspnet_Applications" Type="Self.aspnet_Applications" Multiplicity="1" />
+          <End Role="aspnet_Paths" Type="Self.aspnet_Paths" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Applications">
+              <PropertyRef Name="ApplicationId" />
+            </Principal>
+            <Dependent Role="aspnet_Paths">
+              <PropertyRef Name="ApplicationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Pe__PathI__628FA481">
+          <End Role="aspnet_Paths" Type="Self.aspnet_Paths" Multiplicity="1" />
+          <End Role="aspnet_PersonalizationAllUsers" Type="Self.aspnet_PersonalizationAllUsers" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Paths">
+              <PropertyRef Name="PathId" />
+            </Principal>
+            <Dependent Role="aspnet_PersonalizationAllUsers">
+              <PropertyRef Name="PathId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Pe__PathI__68487DD7">
+          <End Role="aspnet_Paths" Type="Self.aspnet_Paths" Multiplicity="0..1" />
+          <End Role="aspnet_PersonalizationPerUser" Type="Self.aspnet_PersonalizationPerUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Paths">
+              <PropertyRef Name="PathId" />
+            </Principal>
+            <Dependent Role="aspnet_PersonalizationPerUser">
+              <PropertyRef Name="PathId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Ro__Appli__440B1D61">
+          <End Role="aspnet_Applications" Type="Self.aspnet_Applications" Multiplicity="1" />
+          <End Role="aspnet_Roles" Type="Self.aspnet_Roles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Applications">
+              <PropertyRef Name="ApplicationId" />
+            </Principal>
+            <Dependent Role="aspnet_Roles">
+              <PropertyRef Name="ApplicationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Us__Appli__0DAF0CB0">
+          <End Role="aspnet_Applications" Type="Self.aspnet_Applications" Multiplicity="1" />
+          <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Applications">
+              <PropertyRef Name="ApplicationId" />
+            </Principal>
+            <Dependent Role="aspnet_Users">
+              <PropertyRef Name="ApplicationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Us__RoleI__4AB81AF0">
+          <End Role="aspnet_Roles" Type="Self.aspnet_Roles" Multiplicity="1" />
+          <End Role="aspnet_UsersInRoles" Type="Self.aspnet_UsersInRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Roles">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="aspnet_UsersInRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_seguridad_Child_seguridad_Main">
+          <End Role="seguridad_Main" Type="Self.seguridad_Main" Multiplicity="0..1" />
+          <End Role="seguridad_Child" Type="Self.seguridad_Child" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="seguridad_Main">
+              <PropertyRef Name="idMenu" />
+            </Principal>
+            <Dependent Role="seguridad_Child">
+              <PropertyRef Name="idMenu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="seguridad_consultarMenuPermisos2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ApplicationName" Type="varchar" Mode="In" />
+          <Parameter Name="UserName" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="aspnetdb_ColtanquesModelStoreContainer">
+          <EntitySet Name="aspnet_Applications" EntityType="Self.aspnet_Applications" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="aspnet_ApplicationsMenu" EntityType="Self.aspnet_ApplicationsMenu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="aspnet_ApplicationsUsers" EntityType="Self.aspnet_ApplicationsUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="aspnet_Audit" EntityType="Self.aspnet_Audit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="aspnet_Membership" EntityType="Self.aspnet_Membership" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="aspnet_Paths" EntityType="Self.aspnet_Paths" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="aspnet_PersonalizationAllUsers" EntityType="Self.aspnet_PersonalizationAllUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="aspnet_PersonalizationPerUser" EntityType="Self.aspnet_PersonalizationPerUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="aspnet_Profile" EntityType="Self.aspnet_Profile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="aspnet_Roles" EntityType="Self.aspnet_Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="aspnet_RolesMenu" EntityType="Self.aspnet_RolesMenu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="aspnet_SchemaVersions" EntityType="Self.aspnet_SchemaVersions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="aspnet_Session" EntityType="Self.aspnet_Session" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="aspnet_tracker" EntityType="Self.aspnet_tracker" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="aspnet_Users" EntityType="Self.aspnet_Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="aspnet_UsersInRoles" EntityType="Self.aspnet_UsersInRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="aspnet_WebEvent_Events" EntityType="Self.aspnet_WebEvent_Events" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="seguridad_Child" EntityType="Self.seguridad_Child" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="seguridad_Main" EntityType="Self.seguridad_Main" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="seguridad_MainRole" EntityType="Self.seguridad_MainRole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Act_Log" EntityType="Self.Act_Log" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Act_Log].[Id] AS [Id], 
+[Act_Log].[DataReg] AS [DataReg], 
+[Act_Log].[IpCliente] AS [IpCliente], 
+[Act_Log].[Usuario] AS [Usuario], 
+[Act_Log].[AplName] AS [AplName], 
+[Act_Log].[UrlDestino] AS [UrlDestino], 
+[Act_Log].[UrlOrigen] AS [UrlOrigen], 
+[Act_Log].[Acceso] AS [Acceso]
+FROM [dbo].[Act_Log] AS [Act_Log]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="aspnet_MembershipTipos" EntityType="Self.aspnet_MembershipTipos" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[aspnet_MembershipTipos].[idTipo] AS [idTipo], 
+[aspnet_MembershipTipos].[nombreTipo] AS [nombreTipo]
+FROM [dbo].[aspnet_MembershipTipos] AS [aspnet_MembershipTipos]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="aspnet_Parameters" EntityType="Self.aspnet_Parameters" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[aspnet_Parameters].[idParameter] AS [idParameter], 
+[aspnet_Parameters].[parameterName] AS [parameterName], 
+[aspnet_Parameters].[parameterValue] AS [parameterValue]
+FROM [dbo].[aspnet_Parameters] AS [aspnet_Parameters]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Details_Trans" EntityType="Self.Details_Trans" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Details_Trans].[IdRow] AS [IdRow], 
+[Details_Trans].[IdPlc] AS [IdPlc], 
+[Details_Trans].[IdLln] AS [IdLln], 
+[Details_Trans].[Descripcion] AS [Descripcion], 
+[Details_Trans].[Tipo] AS [Tipo], 
+[Details_Trans].[T] AS [T], 
+[Details_Trans].[N] AS [N], 
+[Details_Trans].[D] AS [D]
+FROM [dbo].[Details_Trans] AS [Details_Trans]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Redirect" EntityType="Self.Redirect" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Redirect].[Id] AS [Id], 
+[Redirect].[IP] AS [IP], 
+[Redirect].[Usuario] AS [Usuario], 
+[Redirect].[Acceso] AS [Acceso], 
+[Redirect].[UrlDestino] AS [UrlDestino], 
+[Redirect].[UrlOrigen] AS [UrlOrigen], 
+[Redirect].[AplName] AS [AplName], 
+[Redirect].[fechaCreacion] AS [fechaCreacion]
+FROM [dbo].[Redirect] AS [Redirect]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="seguridad_WebEvent" EntityType="Self.seguridad_WebEvent" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[seguridad_WebEvent].[idEvent] AS [idEvent], 
+[seguridad_WebEvent].[fechaEvento] AS [fechaEvento], 
+[seguridad_WebEvent].[appName] AS [appName], 
+[seguridad_WebEvent].[maquina] AS [maquina], 
+[seguridad_WebEvent].[usuario] AS [usuario], 
+[seguridad_WebEvent].[url] AS [url], 
+[seguridad_WebEvent].[source] AS [source], 
+[seguridad_WebEvent].[mensaje] AS [mensaje], 
+[seguridad_WebEvent].[stackTrace] AS [stackTrace]
+FROM [dbo].[seguridad_WebEvent] AS [seguridad_WebEvent]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__aspnet_Me__Appli__21B6055D" Association="Self.FK__aspnet_Me__Appli__21B6055D">
+            <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+            <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Pa__Appli__5AEE82B9" Association="Self.FK__aspnet_Pa__Appli__5AEE82B9">
+            <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+            <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Pe__PathI__628FA481" Association="Self.FK__aspnet_Pe__PathI__628FA481">
+            <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
+            <End Role="aspnet_PersonalizationAllUsers" EntitySet="aspnet_PersonalizationAllUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Pe__PathI__68487DD7" Association="Self.FK__aspnet_Pe__PathI__68487DD7">
+            <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
+            <End Role="aspnet_PersonalizationPerUser" EntitySet="aspnet_PersonalizationPerUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Ro__Appli__440B1D61" Association="Self.FK__aspnet_Ro__Appli__440B1D61">
+            <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+            <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Us__Appli__0DAF0CB0" Association="Self.FK__aspnet_Us__Appli__0DAF0CB0">
+            <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Us__RoleI__4AB81AF0" Association="Self.FK__aspnet_Us__RoleI__4AB81AF0">
+            <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
+            <End Role="aspnet_UsersInRoles" EntitySet="aspnet_UsersInRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_seguridad_Child_seguridad_Main" Association="Self.FK_seguridad_Child_seguridad_Main">
+            <End Role="seguridad_Main" EntitySet="seguridad_Main" />
+            <End Role="seguridad_Child" EntitySet="seguridad_Child" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="aspnetdb_ColtanquesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="aspnet_Applications">
+          <Key>
+            <PropertyRef Name="ApplicationId" />
+          </Key>
+          <Property Name="ApplicationName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LoweredApplicationName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="urlApplication" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="ApplicationType" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="lastVersionDate" Type="DateTime" Precision="3" />
+          <Property Name="lastVersionSerial" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="daysPasswordChange" Type="Int16" />
+          <NavigationProperty Name="aspnet_Membership" Relationship="Self.FK__aspnet_Me__Appli__21B6055D" FromRole="aspnet_Applications" ToRole="aspnet_Membership" />
+          <NavigationProperty Name="aspnet_Paths" Relationship="Self.FK__aspnet_Pa__Appli__5AEE82B9" FromRole="aspnet_Applications" ToRole="aspnet_Paths" />
+          <NavigationProperty Name="aspnet_Roles" Relationship="Self.FK__aspnet_Ro__Appli__440B1D61" FromRole="aspnet_Applications" ToRole="aspnet_Roles" />
+          <NavigationProperty Name="aspnet_Users" Relationship="Self.FK__aspnet_Us__Appli__0DAF0CB0" FromRole="aspnet_Applications" ToRole="aspnet_Users" />
+        </EntityType>
+        <EntityType Name="aspnet_ApplicationsMenu">
+          <Key>
+            <PropertyRef Name="idMenu" />
+          </Key>
+          <Property Name="idMenu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+          <Property Name="nombreMenu" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idMenuPadre" Type="Int32" Nullable="false" />
+          <Property Name="orden" Type="Int32" Nullable="false" />
+          <Property Name="link" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="visible" Type="Int16" Nullable="false" />
+          <Property Name="alterno" Type="Int16" />
+        </EntityType>
+        <EntityType Name="aspnet_ApplicationsUsers">
+          <Key>
+            <PropertyRef Name="idAppUsrs" />
+          </Key>
+          <Property Name="idAppUsrs" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="RoleId" Type="Guid" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="openSessions" Type="Int32" />
+        </EntityType>
+        <EntityType Name="aspnet_Audit">
+          <Key>
+            <PropertyRef Name="idAudit" />
+          </Key>
+          <Property Name="idAudit" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ApplicationName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ActivityDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EventName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Detail" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="aspnet_Membership">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PasswordFormat" Type="Int32" Nullable="false" />
+          <Property Name="PasswordSalt" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MobilePIN" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="LoweredEmail" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="PasswordQuestion" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="PasswordAnswer" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="IsApproved" Type="Boolean" Nullable="false" />
+          <Property Name="IsLockedOut" Type="Boolean" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastLoginDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastPasswordChangedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastLockoutDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FailedPasswordAttemptCount" Type="Int32" Nullable="false" />
+          <Property Name="FailedPasswordAttemptWindowStart" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FailedPasswordAnswerAttemptCount" Type="Int32" Nullable="false" />
+          <Property Name="FailedPasswordAnswerAttemptWindowStart" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="idAgencia" Type="Int32" />
+          <Property Name="idTipo" Type="Int32" />
+          <Property Name="codigo" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="cedula" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="aspnet_Applications" Relationship="Self.FK__aspnet_Me__Appli__21B6055D" FromRole="aspnet_Membership" ToRole="aspnet_Applications" />
+        </EntityType>
+        <EntityType Name="aspnet_Paths">
+          <Key>
+            <PropertyRef Name="PathId" />
+          </Key>
+          <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+          <Property Name="PathId" Type="Guid" Nullable="false" />
+          <Property Name="Path" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LoweredPath" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="aspnet_Applications" Relationship="Self.FK__aspnet_Pa__Appli__5AEE82B9" FromRole="aspnet_Paths" ToRole="aspnet_Applications" />
+          <NavigationProperty Name="aspnet_PersonalizationAllUsers" Relationship="Self.FK__aspnet_Pe__PathI__628FA481" FromRole="aspnet_Paths" ToRole="aspnet_PersonalizationAllUsers" />
+          <NavigationProperty Name="aspnet_PersonalizationPerUser" Relationship="Self.FK__aspnet_Pe__PathI__68487DD7" FromRole="aspnet_Paths" ToRole="aspnet_PersonalizationPerUser" />
+        </EntityType>
+        <EntityType Name="aspnet_PersonalizationAllUsers">
+          <Key>
+            <PropertyRef Name="PathId" />
+          </Key>
+          <Property Name="PathId" Type="Guid" Nullable="false" />
+          <Property Name="PageSettings" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="LastUpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="aspnet_Paths" Relationship="Self.FK__aspnet_Pe__PathI__628FA481" FromRole="aspnet_PersonalizationAllUsers" ToRole="aspnet_Paths" />
+        </EntityType>
+        <EntityType Name="aspnet_PersonalizationPerUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="PathId" Type="Guid" />
+          <Property Name="UserId" Type="Guid" />
+          <Property Name="PageSettings" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="LastUpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="aspnet_Paths" Relationship="Self.FK__aspnet_Pe__PathI__68487DD7" FromRole="aspnet_PersonalizationPerUser" ToRole="aspnet_Paths" />
+        </EntityType>
+        <EntityType Name="aspnet_Profile">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="PropertyNames" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PropertyValuesString" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PropertyValuesBinary" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="LastUpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="aspnet_Roles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+          <Property Name="RoleId" Type="Guid" Nullable="false" />
+          <Property Name="RoleName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LoweredRoleName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="aspnet_Applications" Relationship="Self.FK__aspnet_Ro__Appli__440B1D61" FromRole="aspnet_Roles" ToRole="aspnet_Applications" />
+          <NavigationProperty Name="aspnet_UsersInRoles" Relationship="Self.FK__aspnet_Us__RoleI__4AB81AF0" FromRole="aspnet_Roles" ToRole="aspnet_UsersInRoles" />
+        </EntityType>
+        <EntityType Name="aspnet_RolesMenu">
+          <Key>
+            <PropertyRef Name="idRoleMenu" />
+          </Key>
+          <Property Name="idRoleMenu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+          <Property Name="RoleId" Type="Guid" Nullable="false" />
+          <Property Name="idMenu" Type="Int32" Nullable="false" />
+          <Property Name="Nuevo" Type="Int16" Nullable="false" />
+          <Property Name="Grabar" Type="Int16" Nullable="false" />
+          <Property Name="Actualizar" Type="Int16" Nullable="false" />
+          <Property Name="Eliminar" Type="Int16" Nullable="false" />
+          <Property Name="Consultar" Type="Int16" Nullable="false" />
+          <Property Name="Autorizar" Type="Int16" Nullable="false" />
+          <Property Name="Salir" Type="Int16" Nullable="false" />
+          <Property Name="Imprimir" Type="Int16" Nullable="false" />
+          <Property Name="Exportar" Type="Int16" Nullable="false" />
+          <Property Name="Menu" Type="Int16" Nullable="false" />
+        </EntityType>
+        <EntityType Name="aspnet_SchemaVersions">
+          <Key>
+            <PropertyRef Name="Feature" />
+            <PropertyRef Name="CompatibleSchemaVersion" />
+          </Key>
+          <Property Name="Feature" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CompatibleSchemaVersion" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsCurrentVersion" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="aspnet_Session">
+          <Key>
+            <PropertyRef Name="idSession" />
+          </Key>
+          <Property Name="idSession" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idUser" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="nombreUser" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="emailUser" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="fechaCreacion" Type="DateTime" Precision="3" />
+          <Property Name="fechaExpiracion" Type="DateTime" Precision="3" />
+          <Property Name="estado" Type="Int32" />
+          <Property Name="fechaEstado" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="aspnet_tracker">
+          <Key>
+            <PropertyRef Name="idSoporte" />
+          </Key>
+          <Property Name="idSoporte" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fechaCreacion" Type="DateTime" Precision="3" />
+          <Property Name="usuarioCrea" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="empresa" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="aplicacion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="fechaInicio" Type="DateTime" Precision="3" />
+          <Property Name="fechaFinal" Type="DateTime" Precision="3" />
+          <Property Name="detalleSoporte" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="horas" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="tarifa" Type="Int32" />
+          <Property Name="valorServicio" Type="Int32" />
+          <Property Name="facturable" Type="Int16" />
+          <Property Name="estado" Type="Int32" />
+          <Property Name="factura" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fechaFra" Type="DateTime" Precision="3" />
+          <Property Name="pagoFactura" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="aspnet_Users">
+          <Key>
+            <PropertyRef Name="ApplicationId" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LoweredUserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MobileAlias" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="IsAnonymous" Type="Boolean" Nullable="false" />
+          <Property Name="LastActivityDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="aspnet_Applications" Relationship="Self.FK__aspnet_Us__Appli__0DAF0CB0" FromRole="aspnet_Users" ToRole="aspnet_Applications" />
+        </EntityType>
+        <EntityType Name="aspnet_UsersInRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="RoleId" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="aspnet_Roles" Relationship="Self.FK__aspnet_Us__RoleI__4AB81AF0" FromRole="aspnet_UsersInRoles" ToRole="aspnet_Roles" />
+        </EntityType>
+        <EntityType Name="aspnet_WebEvent_Events">
+          <Key>
+            <PropertyRef Name="EventId" />
+          </Key>
+          <Property Name="EventId" Type="String" MaxLength="32" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="EventTimeUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EventTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EventType" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EventSequence" Type="Decimal" Precision="19" Scale="0" Nullable="false" />
+          <Property Name="EventOccurrence" Type="Decimal" Precision="19" Scale="0" Nullable="false" />
+          <Property Name="EventCode" Type="Int32" Nullable="false" />
+          <Property Name="EventDetailCode" Type="Int32" Nullable="false" />
+          <Property Name="Message" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="ApplicationPath" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="ApplicationVirtualPath" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="MachineName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RequestUrl" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="ExceptionType" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Details" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="seguridad_Child">
+          <Key>
+            <PropertyRef Name="idSubMenu" />
+          </Key>
+          <Property Name="idSubMenu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idMenu" Type="Int32" />
+          <Property Name="subMenuName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="link" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="visible" Type="Int16" />
+          <Property Name="orden" Type="Int16" />
+          <Property Name="linkType" Type="Int16" />
+          <NavigationProperty Name="seguridad_Main" Relationship="Self.FK_seguridad_Child_seguridad_Main" FromRole="seguridad_Child" ToRole="seguridad_Main" />
+        </EntityType>
+        <EntityType Name="seguridad_Main">
+          <Key>
+            <PropertyRef Name="idMenu" />
+          </Key>
+          <Property Name="idMenu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ApplicationName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="menuName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="link" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="visible" Type="Int16" />
+          <Property Name="orden" Type="Int16" />
+          <NavigationProperty Name="seguridad_Child" Relationship="Self.FK_seguridad_Child_seguridad_Main" FromRole="seguridad_Main" ToRole="seguridad_Child" />
+        </EntityType>
+        <EntityType Name="seguridad_MainRole">
+          <Key>
+            <PropertyRef Name="idMenuRole" />
+          </Key>
+          <Property Name="idMenuRole" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ApplicationName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="idMenu" Type="Int32" />
+          <Property Name="idSubMenu" Type="Int32" />
+          <Property Name="RoleName" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Act_Log">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="DataReg" />
+            <PropertyRef Name="IpCliente" />
+            <PropertyRef Name="Usuario" />
+            <PropertyRef Name="AplName" />
+            <PropertyRef Name="UrlDestino" />
+            <PropertyRef Name="UrlOrigen" />
+            <PropertyRef Name="Acceso" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DataReg" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IpCliente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AplName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UrlDestino" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UrlOrigen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Acceso" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="aspnet_MembershipTipos">
+          <Key>
+            <PropertyRef Name="idTipo" />
+            <PropertyRef Name="nombreTipo" />
+          </Key>
+          <Property Name="idTipo" Type="Int32" Nullable="false" />
+          <Property Name="nombreTipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="aspnet_Parameters">
+          <Key>
+            <PropertyRef Name="idParameter" />
+          </Key>
+          <Property Name="idParameter" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="parameterName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="parameterValue" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Details_Trans">
+          <Key>
+            <PropertyRef Name="IdRow" />
+            <PropertyRef Name="IdPlc" />
+            <PropertyRef Name="IdLln" />
+            <PropertyRef Name="Descripcion" />
+            <PropertyRef Name="Tipo" />
+          </Key>
+          <Property Name="IdRow" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdPlc" Type="Int32" Nullable="false" />
+          <Property Name="IdLln" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="250" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Tipo" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="T" Type="String" MaxLength="250" FixedLength="true" Unicode="true" />
+          <Property Name="N" Type="Double" />
+          <Property Name="D" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Redirect">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="IP" />
+            <PropertyRef Name="Usuario" />
+            <PropertyRef Name="Acceso" />
+            <PropertyRef Name="UrlDestino" />
+            <PropertyRef Name="UrlOrigen" />
+            <PropertyRef Name="AplName" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Acceso" Type="Int32" Nullable="false" />
+          <Property Name="UrlDestino" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UrlOrigen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AplName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fechaCreacion" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="seguridad_WebEvent">
+          <Key>
+            <PropertyRef Name="idEvent" />
+          </Key>
+          <Property Name="idEvent" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fechaEvento" Type="DateTime" Precision="3" />
+          <Property Name="appName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="maquina" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="usuario" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="url" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="source" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="mensaje" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="stackTrace" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK__aspnet_Me__Appli__21B6055D">
+          <End Role="aspnet_Applications" Type="Self.aspnet_Applications" Multiplicity="1" />
+          <End Role="aspnet_Membership" Type="Self.aspnet_Membership" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Applications">
+              <PropertyRef Name="ApplicationId" />
+            </Principal>
+            <Dependent Role="aspnet_Membership">
+              <PropertyRef Name="ApplicationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Pa__Appli__5AEE82B9">
+          <End Role="aspnet_Applications" Type="Self.aspnet_Applications" Multiplicity="1" />
+          <End Role="aspnet_Paths" Type="Self.aspnet_Paths" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Applications">
+              <PropertyRef Name="ApplicationId" />
+            </Principal>
+            <Dependent Role="aspnet_Paths">
+              <PropertyRef Name="ApplicationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Ro__Appli__440B1D61">
+          <End Role="aspnet_Applications" Type="Self.aspnet_Applications" Multiplicity="1" />
+          <End Role="aspnet_Roles" Type="Self.aspnet_Roles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Applications">
+              <PropertyRef Name="ApplicationId" />
+            </Principal>
+            <Dependent Role="aspnet_Roles">
+              <PropertyRef Name="ApplicationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Us__Appli__0DAF0CB0">
+          <End Role="aspnet_Applications" Type="Self.aspnet_Applications" Multiplicity="1" />
+          <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Applications">
+              <PropertyRef Name="ApplicationId" />
+            </Principal>
+            <Dependent Role="aspnet_Users">
+              <PropertyRef Name="ApplicationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Pe__PathI__628FA481">
+          <End Role="aspnet_Paths" Type="Self.aspnet_Paths" Multiplicity="1" />
+          <End Role="aspnet_PersonalizationAllUsers" Type="Self.aspnet_PersonalizationAllUsers" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Paths">
+              <PropertyRef Name="PathId" />
+            </Principal>
+            <Dependent Role="aspnet_PersonalizationAllUsers">
+              <PropertyRef Name="PathId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Pe__PathI__68487DD7">
+          <End Role="aspnet_Paths" Type="Self.aspnet_Paths" Multiplicity="0..1" />
+          <End Role="aspnet_PersonalizationPerUser" Type="Self.aspnet_PersonalizationPerUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Paths">
+              <PropertyRef Name="PathId" />
+            </Principal>
+            <Dependent Role="aspnet_PersonalizationPerUser">
+              <PropertyRef Name="PathId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Us__RoleI__4AB81AF0">
+          <End Role="aspnet_Roles" Type="Self.aspnet_Roles" Multiplicity="1" />
+          <End Role="aspnet_UsersInRoles" Type="Self.aspnet_UsersInRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Roles">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="aspnet_UsersInRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_seguridad_Child_seguridad_Main">
+          <End Role="seguridad_Main" Type="Self.seguridad_Main" Multiplicity="0..1" />
+          <End Role="seguridad_Child" Type="Self.seguridad_Child" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="seguridad_Main">
+              <PropertyRef Name="idMenu" />
+            </Principal>
+            <Dependent Role="seguridad_Child">
+              <PropertyRef Name="idMenu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="aspnetdb_ColtanquesEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="aspnet_Applications" EntityType="Self.aspnet_Applications" />
+          <EntitySet Name="aspnet_ApplicationsMenu" EntityType="Self.aspnet_ApplicationsMenu" />
+          <EntitySet Name="aspnet_ApplicationsUsers" EntityType="Self.aspnet_ApplicationsUsers" />
+          <EntitySet Name="aspnet_Audit" EntityType="Self.aspnet_Audit" />
+          <EntitySet Name="aspnet_Membership" EntityType="Self.aspnet_Membership" />
+          <EntitySet Name="aspnet_Paths" EntityType="Self.aspnet_Paths" />
+          <EntitySet Name="aspnet_PersonalizationAllUsers" EntityType="Self.aspnet_PersonalizationAllUsers" />
+          <EntitySet Name="aspnet_PersonalizationPerUser" EntityType="Self.aspnet_PersonalizationPerUser" />
+          <EntitySet Name="aspnet_Profile" EntityType="Self.aspnet_Profile" />
+          <EntitySet Name="aspnet_Roles" EntityType="Self.aspnet_Roles" />
+          <EntitySet Name="aspnet_RolesMenu" EntityType="Self.aspnet_RolesMenu" />
+          <EntitySet Name="aspnet_SchemaVersions" EntityType="Self.aspnet_SchemaVersions" />
+          <EntitySet Name="aspnet_Session" EntityType="Self.aspnet_Session" />
+          <EntitySet Name="aspnet_tracker" EntityType="Self.aspnet_tracker" />
+          <EntitySet Name="aspnet_Users" EntityType="Self.aspnet_Users" />
+          <EntitySet Name="aspnet_UsersInRoles" EntityType="Self.aspnet_UsersInRoles" />
+          <EntitySet Name="aspnet_WebEvent_Events" EntityType="Self.aspnet_WebEvent_Events" />
+          <EntitySet Name="seguridad_Child" EntityType="Self.seguridad_Child" />
+          <EntitySet Name="seguridad_Main" EntityType="Self.seguridad_Main" />
+          <EntitySet Name="seguridad_MainRole" EntityType="Self.seguridad_MainRole" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Act_Log" EntityType="Self.Act_Log" />
+          <EntitySet Name="aspnet_MembershipTipos" EntityType="Self.aspnet_MembershipTipos" />
+          <EntitySet Name="aspnet_Parameters" EntityType="Self.aspnet_Parameters" />
+          <EntitySet Name="Details_Trans" EntityType="Self.Details_Trans" />
+          <EntitySet Name="Redirect" EntityType="Self.Redirect" />
+          <EntitySet Name="seguridad_WebEvent" EntityType="Self.seguridad_WebEvent" />
+          <AssociationSet Name="FK__aspnet_Me__Appli__21B6055D" Association="Self.FK__aspnet_Me__Appli__21B6055D">
+            <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+            <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Pa__Appli__5AEE82B9" Association="Self.FK__aspnet_Pa__Appli__5AEE82B9">
+            <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+            <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Ro__Appli__440B1D61" Association="Self.FK__aspnet_Ro__Appli__440B1D61">
+            <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+            <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Us__Appli__0DAF0CB0" Association="Self.FK__aspnet_Us__Appli__0DAF0CB0">
+            <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Pe__PathI__628FA481" Association="Self.FK__aspnet_Pe__PathI__628FA481">
+            <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
+            <End Role="aspnet_PersonalizationAllUsers" EntitySet="aspnet_PersonalizationAllUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Pe__PathI__68487DD7" Association="Self.FK__aspnet_Pe__PathI__68487DD7">
+            <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
+            <End Role="aspnet_PersonalizationPerUser" EntitySet="aspnet_PersonalizationPerUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Us__RoleI__4AB81AF0" Association="Self.FK__aspnet_Us__RoleI__4AB81AF0">
+            <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
+            <End Role="aspnet_UsersInRoles" EntitySet="aspnet_UsersInRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_seguridad_Child_seguridad_Main" Association="Self.FK_seguridad_Child_seguridad_Main">
+            <End Role="seguridad_Main" EntitySet="seguridad_Main" />
+            <End Role="seguridad_Child" EntitySet="seguridad_Child" />
+          </AssociationSet>
+          <FunctionImport Name="seguridad_consultarMenuPermisos2" ReturnType="Collection(aspnetdb_ColtanquesModel.seguridad_consultarMenuPermisos2_Result)">
+            <Parameter Name="ApplicationName" Mode="In" Type="String" />
+            <Parameter Name="UserName" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="seguridad_consultarMenuPermisos2_Result">
+          <Property Type="Int32" Name="orden" Nullable="true" />
+          <Property Type="Int32" Name="idMenu" Nullable="false" />
+          <Property Type="String" Name="Tipo" Nullable="false" MaxLength="6" />
+          <Property Type="Int32" Name="idMenuPadre" Nullable="true" />
+          <Property Type="String" Name="nombreMenu" Nullable="true" MaxLength="100" />
+          <Property Type="Int16" Name="Nuevo" Nullable="false" />
+          <Property Type="Int16" Name="Grabar" Nullable="false" />
+          <Property Type="Int16" Name="Actualizar" Nullable="false" />
+          <Property Type="Int16" Name="Eliminar" Nullable="false" />
+          <Property Type="Int16" Name="Consultar" Nullable="false" />
+          <Property Type="Int16" Name="Autorizar" Nullable="false" />
+          <Property Type="Int16" Name="Salir" Nullable="false" />
+          <Property Type="Int16" Name="Imprimir" Nullable="false" />
+          <Property Type="Int16" Name="Exportar" Nullable="false" />
+          <Property Type="Int16" Name="Menu" Nullable="false" />
+          <Property Type="Int32" Name="idAgencia" Nullable="true" />
+          <Property Type="Int16" Name="alterno" Nullable="true" />
+          <Property Type="String" Name="mensaje" Nullable="true" MaxLength="1000" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="aspnetdb_ColtanquesModelStoreContainer" CdmEntityContainer="aspnetdb_ColtanquesEntities">
+          <EntitySetMapping Name="aspnet_Applications">
+            <EntityTypeMapping TypeName="aspnetdb_ColtanquesModel.aspnet_Applications">
+              <MappingFragment StoreEntitySet="aspnet_Applications">
+                <ScalarProperty Name="ApplicationName" ColumnName="ApplicationName" />
+                <ScalarProperty Name="LoweredApplicationName" ColumnName="LoweredApplicationName" />
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="urlApplication" ColumnName="urlApplication" />
+                <ScalarProperty Name="ApplicationType" ColumnName="ApplicationType" />
+                <ScalarProperty Name="lastVersionDate" ColumnName="lastVersionDate" />
+                <ScalarProperty Name="lastVersionSerial" ColumnName="lastVersionSerial" />
+                <ScalarProperty Name="daysPasswordChange" ColumnName="daysPasswordChange" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_ApplicationsMenu">
+            <EntityTypeMapping TypeName="aspnetdb_ColtanquesModel.aspnet_ApplicationsMenu">
+              <MappingFragment StoreEntitySet="aspnet_ApplicationsMenu">
+                <ScalarProperty Name="idMenu" ColumnName="idMenu" />
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+                <ScalarProperty Name="nombreMenu" ColumnName="nombreMenu" />
+                <ScalarProperty Name="idMenuPadre" ColumnName="idMenuPadre" />
+                <ScalarProperty Name="orden" ColumnName="orden" />
+                <ScalarProperty Name="link" ColumnName="link" />
+                <ScalarProperty Name="visible" ColumnName="visible" />
+                <ScalarProperty Name="alterno" ColumnName="alterno" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_ApplicationsUsers">
+            <EntityTypeMapping TypeName="aspnetdb_ColtanquesModel.aspnet_ApplicationsUsers">
+              <MappingFragment StoreEntitySet="aspnet_ApplicationsUsers">
+                <ScalarProperty Name="idAppUsrs" ColumnName="idAppUsrs" />
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="openSessions" ColumnName="openSessions" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_Audit">
+            <EntityTypeMapping TypeName="aspnetdb_ColtanquesModel.aspnet_Audit">
+              <MappingFragment StoreEntitySet="aspnet_Audit">
+                <ScalarProperty Name="idAudit" ColumnName="idAudit" />
+                <ScalarProperty Name="ApplicationName" ColumnName="ApplicationName" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="ActivityDate" ColumnName="ActivityDate" />
+                <ScalarProperty Name="EventName" ColumnName="EventName" />
+                <ScalarProperty Name="Detail" ColumnName="Detail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_Membership">
+            <EntityTypeMapping TypeName="aspnetdb_ColtanquesModel.aspnet_Membership">
+              <MappingFragment StoreEntitySet="aspnet_Membership">
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="PasswordFormat" ColumnName="PasswordFormat" />
+                <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+                <ScalarProperty Name="MobilePIN" ColumnName="MobilePIN" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="LoweredEmail" ColumnName="LoweredEmail" />
+                <ScalarProperty Name="PasswordQuestion" ColumnName="PasswordQuestion" />
+                <ScalarProperty Name="PasswordAnswer" ColumnName="PasswordAnswer" />
+                <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+                <ScalarProperty Name="IsLockedOut" ColumnName="IsLockedOut" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
+                <ScalarProperty Name="LastPasswordChangedDate" ColumnName="LastPasswordChangedDate" />
+                <ScalarProperty Name="LastLockoutDate" ColumnName="LastLockoutDate" />
+                <ScalarProperty Name="FailedPasswordAttemptCount" ColumnName="FailedPasswordAttemptCount" />
+                <ScalarProperty Name="FailedPasswordAttemptWindowStart" ColumnName="FailedPasswordAttemptWindowStart" />
+                <ScalarProperty Name="FailedPasswordAnswerAttemptCount" ColumnName="FailedPasswordAnswerAttemptCount" />
+                <ScalarProperty Name="FailedPasswordAnswerAttemptWindowStart" ColumnName="FailedPasswordAnswerAttemptWindowStart" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="idAgencia" ColumnName="idAgencia" />
+                <ScalarProperty Name="idTipo" ColumnName="idTipo" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="cedula" ColumnName="cedula" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_Paths">
+            <EntityTypeMapping TypeName="aspnetdb_ColtanquesModel.aspnet_Paths">
+              <MappingFragment StoreEntitySet="aspnet_Paths">
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+                <ScalarProperty Name="PathId" ColumnName="PathId" />
+                <ScalarProperty Name="Path" ColumnName="Path" />
+                <ScalarProperty Name="LoweredPath" ColumnName="LoweredPath" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_PersonalizationAllUsers">
+            <EntityTypeMapping TypeName="aspnetdb_ColtanquesModel.aspnet_PersonalizationAllUsers">
+              <MappingFragment StoreEntitySet="aspnet_PersonalizationAllUsers">
+                <ScalarProperty Name="PathId" ColumnName="PathId" />
+                <ScalarProperty Name="PageSettings" ColumnName="PageSettings" />
+                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_PersonalizationPerUser">
+            <EntityTypeMapping TypeName="aspnetdb_ColtanquesModel.aspnet_PersonalizationPerUser">
+              <MappingFragment StoreEntitySet="aspnet_PersonalizationPerUser">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PathId" ColumnName="PathId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="PageSettings" ColumnName="PageSettings" />
+                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_Profile">
+            <EntityTypeMapping TypeName="aspnetdb_ColtanquesModel.aspnet_Profile">
+              <MappingFragment StoreEntitySet="aspnet_Profile">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="PropertyNames" ColumnName="PropertyNames" />
+                <ScalarProperty Name="PropertyValuesString" ColumnName="PropertyValuesString" />
+                <ScalarProperty Name="PropertyValuesBinary" ColumnName="PropertyValuesBinary" />
+                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_Roles">
+            <EntityTypeMapping TypeName="aspnetdb_ColtanquesModel.aspnet_Roles">
+              <MappingFragment StoreEntitySet="aspnet_Roles">
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="LoweredRoleName" ColumnName="LoweredRoleName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_RolesMenu">
+            <EntityTypeMapping TypeName="aspnetdb_ColtanquesModel.aspnet_RolesMenu">
+              <MappingFragment StoreEntitySet="aspnet_RolesMenu">
+                <ScalarProperty Name="idRoleMenu" ColumnName="idRoleMenu" />
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="idMenu" ColumnName="idMenu" />
+                <ScalarProperty Name="Nuevo" ColumnName="Nuevo" />
+                <ScalarProperty Name="Grabar" ColumnName="Grabar" />
+                <ScalarProperty Name="Actualizar" ColumnName="Actualizar" />
+                <ScalarProperty Name="Eliminar" ColumnName="Eliminar" />
+                <ScalarProperty Name="Consultar" ColumnName="Consultar" />
+                <ScalarProperty Name="Autorizar" ColumnName="Autorizar" />
+                <ScalarProperty Name="Salir" ColumnName="Salir" />
+                <ScalarProperty Name="Imprimir" ColumnName="Imprimir" />
+                <ScalarProperty Name="Exportar" ColumnName="Exportar" />
+                <ScalarProperty Name="Menu" ColumnName="Menu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_SchemaVersions">
+            <EntityTypeMapping TypeName="aspnetdb_ColtanquesModel.aspnet_SchemaVersions">
+              <MappingFragment StoreEntitySet="aspnet_SchemaVersions">
+                <ScalarProperty Name="Feature" ColumnName="Feature" />
+                <ScalarProperty Name="CompatibleSchemaVersion" ColumnName="CompatibleSchemaVersion" />
+                <ScalarProperty Name="IsCurrentVersion" ColumnName="IsCurrentVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_Session">
+            <EntityTypeMapping TypeName="aspnetdb_ColtanquesModel.aspnet_Session">
+              <MappingFragment StoreEntitySet="aspnet_Session">
+                <ScalarProperty Name="idSession" ColumnName="idSession" />
+                <ScalarProperty Name="idUser" ColumnName="idUser" />
+                <ScalarProperty Name="nombreUser" ColumnName="nombreUser" />
+                <ScalarProperty Name="emailUser" ColumnName="emailUser" />
+                <ScalarProperty Name="fechaCreacion" ColumnName="fechaCreacion" />
+                <ScalarProperty Name="fechaExpiracion" ColumnName="fechaExpiracion" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="fechaEstado" ColumnName="fechaEstado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_tracker">
+            <EntityTypeMapping TypeName="aspnetdb_ColtanquesModel.aspnet_tracker">
+              <MappingFragment StoreEntitySet="aspnet_tracker">
+                <ScalarProperty Name="idSoporte" ColumnName="idSoporte" />
+                <ScalarProperty Name="fechaCreacion" ColumnName="fechaCreacion" />
+                <ScalarProperty Name="usuarioCrea" ColumnName="usuarioCrea" />
+                <ScalarProperty Name="empresa" ColumnName="empresa" />
+                <ScalarProperty Name="aplicacion" ColumnName="aplicacion" />
+                <ScalarProperty Name="fechaInicio" ColumnName="fechaInicio" />
+                <ScalarProperty Name="fechaFinal" ColumnName="fechaFinal" />
+                <ScalarProperty Name="detalleSoporte" ColumnName="detalleSoporte" />
+                <ScalarProperty Name="horas" ColumnName="horas" />
+                <ScalarProperty Name="tarifa" ColumnName="tarifa" />
+                <ScalarProperty Name="valorServicio" ColumnName="valorServicio" />
+                <ScalarProperty Name="facturable" ColumnName="facturable" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="factura" ColumnName="factura" />
+                <ScalarProperty Name="fechaFra" ColumnName="fechaFra" />
+                <ScalarProperty Name="pagoFactura" ColumnName="pagoFactura" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_Users">
+            <EntityTypeMapping TypeName="aspnetdb_ColtanquesModel.aspnet_Users">
+              <MappingFragment StoreEntitySet="aspnet_Users">
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="LoweredUserName" ColumnName="LoweredUserName" />
+                <ScalarProperty Name="MobileAlias" ColumnName="MobileAlias" />
+                <ScalarProperty Name="IsAnonymous" ColumnName="IsAnonymous" />
+                <ScalarProperty Name="LastActivityDate" ColumnName="LastActivityDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_UsersInRoles">
+            <EntityTypeMapping TypeName="aspnetdb_ColtanquesModel.aspnet_UsersInRoles">
+              <MappingFragment StoreEntitySet="aspnet_UsersInRoles">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_WebEvent_Events">
+            <EntityTypeMapping TypeName="aspnetdb_ColtanquesModel.aspnet_WebEvent_Events">
+              <MappingFragment StoreEntitySet="aspnet_WebEvent_Events">
+                <ScalarProperty Name="EventId" ColumnName="EventId" />
+                <ScalarProperty Name="EventTimeUtc" ColumnName="EventTimeUtc" />
+                <ScalarProperty Name="EventTime" ColumnName="EventTime" />
+                <ScalarProperty Name="EventType" ColumnName="EventType" />
+                <ScalarProperty Name="EventSequence" ColumnName="EventSequence" />
+                <ScalarProperty Name="EventOccurrence" ColumnName="EventOccurrence" />
+                <ScalarProperty Name="EventCode" ColumnName="EventCode" />
+                <ScalarProperty Name="EventDetailCode" ColumnName="EventDetailCode" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="ApplicationPath" ColumnName="ApplicationPath" />
+                <ScalarProperty Name="ApplicationVirtualPath" ColumnName="ApplicationVirtualPath" />
+                <ScalarProperty Name="MachineName" ColumnName="MachineName" />
+                <ScalarProperty Name="RequestUrl" ColumnName="RequestUrl" />
+                <ScalarProperty Name="ExceptionType" ColumnName="ExceptionType" />
+                <ScalarProperty Name="Details" ColumnName="Details" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="seguridad_Child">
+            <EntityTypeMapping TypeName="aspnetdb_ColtanquesModel.seguridad_Child">
+              <MappingFragment StoreEntitySet="seguridad_Child">
+                <ScalarProperty Name="idSubMenu" ColumnName="idSubMenu" />
+                <ScalarProperty Name="idMenu" ColumnName="idMenu" />
+                <ScalarProperty Name="subMenuName" ColumnName="subMenuName" />
+                <ScalarProperty Name="link" ColumnName="link" />
+                <ScalarProperty Name="visible" ColumnName="visible" />
+                <ScalarProperty Name="orden" ColumnName="orden" />
+                <ScalarProperty Name="linkType" ColumnName="linkType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="seguridad_Main">
+            <EntityTypeMapping TypeName="aspnetdb_ColtanquesModel.seguridad_Main">
+              <MappingFragment StoreEntitySet="seguridad_Main">
+                <ScalarProperty Name="idMenu" ColumnName="idMenu" />
+                <ScalarProperty Name="ApplicationName" ColumnName="ApplicationName" />
+                <ScalarProperty Name="menuName" ColumnName="menuName" />
+                <ScalarProperty Name="link" ColumnName="link" />
+                <ScalarProperty Name="visible" ColumnName="visible" />
+                <ScalarProperty Name="orden" ColumnName="orden" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="seguridad_MainRole">
+            <EntityTypeMapping TypeName="aspnetdb_ColtanquesModel.seguridad_MainRole">
+              <MappingFragment StoreEntitySet="seguridad_MainRole">
+                <ScalarProperty Name="idMenuRole" ColumnName="idMenuRole" />
+                <ScalarProperty Name="ApplicationName" ColumnName="ApplicationName" />
+                <ScalarProperty Name="idMenu" ColumnName="idMenu" />
+                <ScalarProperty Name="idSubMenu" ColumnName="idSubMenu" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="aspnetdb_ColtanquesModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Act_Log">
+            <EntityTypeMapping TypeName="aspnetdb_ColtanquesModel.Act_Log">
+              <MappingFragment StoreEntitySet="Act_Log">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DataReg" ColumnName="DataReg" />
+                <ScalarProperty Name="IpCliente" ColumnName="IpCliente" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="AplName" ColumnName="AplName" />
+                <ScalarProperty Name="UrlDestino" ColumnName="UrlDestino" />
+                <ScalarProperty Name="UrlOrigen" ColumnName="UrlOrigen" />
+                <ScalarProperty Name="Acceso" ColumnName="Acceso" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_MembershipTipos">
+            <EntityTypeMapping TypeName="aspnetdb_ColtanquesModel.aspnet_MembershipTipos">
+              <MappingFragment StoreEntitySet="aspnet_MembershipTipos">
+                <ScalarProperty Name="idTipo" ColumnName="idTipo" />
+                <ScalarProperty Name="nombreTipo" ColumnName="nombreTipo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_Parameters">
+            <EntityTypeMapping TypeName="aspnetdb_ColtanquesModel.aspnet_Parameters">
+              <MappingFragment StoreEntitySet="aspnet_Parameters">
+                <ScalarProperty Name="idParameter" ColumnName="idParameter" />
+                <ScalarProperty Name="parameterName" ColumnName="parameterName" />
+                <ScalarProperty Name="parameterValue" ColumnName="parameterValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Details_Trans">
+            <EntityTypeMapping TypeName="aspnetdb_ColtanquesModel.Details_Trans">
+              <MappingFragment StoreEntitySet="Details_Trans">
+                <ScalarProperty Name="IdRow" ColumnName="IdRow" />
+                <ScalarProperty Name="IdPlc" ColumnName="IdPlc" />
+                <ScalarProperty Name="IdLln" ColumnName="IdLln" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="T" ColumnName="T" />
+                <ScalarProperty Name="N" ColumnName="N" />
+                <ScalarProperty Name="D" ColumnName="D" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Redirect">
+            <EntityTypeMapping TypeName="aspnetdb_ColtanquesModel.Redirect">
+              <MappingFragment StoreEntitySet="Redirect">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IP" ColumnName="IP" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Acceso" ColumnName="Acceso" />
+                <ScalarProperty Name="UrlDestino" ColumnName="UrlDestino" />
+                <ScalarProperty Name="UrlOrigen" ColumnName="UrlOrigen" />
+                <ScalarProperty Name="AplName" ColumnName="AplName" />
+                <ScalarProperty Name="fechaCreacion" ColumnName="fechaCreacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="seguridad_WebEvent">
+            <EntityTypeMapping TypeName="aspnetdb_ColtanquesModel.seguridad_WebEvent">
+              <MappingFragment StoreEntitySet="seguridad_WebEvent">
+                <ScalarProperty Name="idEvent" ColumnName="idEvent" />
+                <ScalarProperty Name="fechaEvento" ColumnName="fechaEvento" />
+                <ScalarProperty Name="appName" ColumnName="appName" />
+                <ScalarProperty Name="maquina" ColumnName="maquina" />
+                <ScalarProperty Name="usuario" ColumnName="usuario" />
+                <ScalarProperty Name="url" ColumnName="url" />
+                <ScalarProperty Name="source" ColumnName="source" />
+                <ScalarProperty Name="mensaje" ColumnName="mensaje" />
+                <ScalarProperty Name="stackTrace" ColumnName="stackTrace" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="seguridad_consultarMenuPermisos2" FunctionName="aspnetdb_ColtanquesModel.Store.seguridad_consultarMenuPermisos2">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="aspnetdb_ColtanquesModel.seguridad_consultarMenuPermisos2_Result">
+                <ScalarProperty Name="orden" ColumnName="orden" />
+                <ScalarProperty Name="idMenu" ColumnName="idMenu" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="idMenuPadre" ColumnName="idMenuPadre" />
+                <ScalarProperty Name="nombreMenu" ColumnName="nombreMenu" />
+                <ScalarProperty Name="Nuevo" ColumnName="Nuevo" />
+                <ScalarProperty Name="Grabar" ColumnName="Grabar" />
+                <ScalarProperty Name="Actualizar" ColumnName="Actualizar" />
+                <ScalarProperty Name="Eliminar" ColumnName="Eliminar" />
+                <ScalarProperty Name="Consultar" ColumnName="Consultar" />
+                <ScalarProperty Name="Autorizar" ColumnName="Autorizar" />
+                <ScalarProperty Name="Salir" ColumnName="Salir" />
+                <ScalarProperty Name="Imprimir" ColumnName="Imprimir" />
+                <ScalarProperty Name="Exportar" ColumnName="Exportar" />
+                <ScalarProperty Name="Menu" ColumnName="Menu" />
+                <ScalarProperty Name="idAgencia" ColumnName="idAgencia" />
+                <ScalarProperty Name="alterno" ColumnName="alterno" />
+                <ScalarProperty Name="mensaje" ColumnName="mensaje" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

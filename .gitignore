@@ -1,0 +1,8 @@
+.vs/
+packages/
+WPF_Vehitanques/bin/
+WPF_Vehitanques/obj/
+WPF_Vehitanques/App.config
+*.suo
+*.user
+*.pfx

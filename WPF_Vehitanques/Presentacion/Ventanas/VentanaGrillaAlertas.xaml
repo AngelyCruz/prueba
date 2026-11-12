@@ -1,0 +1,31 @@
+﻿<Window x:Class="WPF_Vehitanques.Presentacion.Ventanas.VentanaGrillaAlertas"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Alertas hoja de vida del vehículo" 
+        Height="auto" MinWidth="300" MaxWidth="800" >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"  ></ColumnDefinition>
+            <ColumnDefinition Width="20*" ></ColumnDefinition>
+            <ColumnDefinition Width="20*" ></ColumnDefinition>
+            <ColumnDefinition Width="15*" ></ColumnDefinition>
+            <ColumnDefinition Width="20*" ></ColumnDefinition>
+            <ColumnDefinition Width="25*" ></ColumnDefinition>
+            <ColumnDefinition Width="5*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition MinHeight="30" MaxHeight="50"></RowDefinition>
+            <RowDefinition MinHeight="30" MaxHeight="50"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <DataGrid  Name="gridlistamensajes"  Width="auto"  IsReadOnly="True " CanUserReorderColumns="False" FontWeight="Bold" FontFamily="Arial"  CanUserAddRows="False" CanUserResizeRows="False"  CanUserResizeColumns="True" AlternatingRowBackground="#BCF9FA"  AutoGenerateColumns="False" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="8"  ColumnWidth="Auto" HorizontalContentAlignment="Center" Cursor="Hand" MaxHeight="500"  HorizontalAlignment="Center"  VerticalAlignment="Stretch"  CanUserDeleteRows="False" IsEnabled="True" Visibility="Visible"  ClipboardCopyMode="None">
+            <DataGrid.Columns >
+                <DataGridTextColumn Header="Placa" Binding="{Binding Path=Identificador}"  MaxWidth="80" MinWidth="60" IsReadOnly="true"   />
+                <DataGridTextColumn Header="Tipo Mensaje" Binding="{Binding Path=Titulo}" Width="auto" IsReadOnly="True" />
+                <DataGridTextColumn Header="Mensaje"  Binding="{Binding Path=Mensaje}"   Width="auto" IsReadOnly="True" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+    </Grid>
+</Window>
